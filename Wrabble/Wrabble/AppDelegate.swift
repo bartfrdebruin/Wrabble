@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,18 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        
         
         // Keys.plist with applicationID and clientID of Parse.
         var loginDictionary: NSDictionary?
         let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")
         loginDictionary = NSDictionary(contentsOfFile: path!)
         
-        var applicationId = (loginDictionary!["parseApplicationId"] as! String)
-        var clientKey = (loginDictionary!["parseClientKey"] as! String)
+        let applicationId = (loginDictionary!["parseApplicationId"] as! String)
+        let clientKey = (loginDictionary!["parseClientKey"] as! String)
         
         // Parse Initialization.
         Parse.setApplicationId(applicationId, clientKey: clientKey)
+        let first = FirstViewController()
+        self.window?.rootViewController = first
+        return true
    
     }
 

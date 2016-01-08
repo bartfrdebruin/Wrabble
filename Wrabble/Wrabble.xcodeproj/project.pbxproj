@@ -17,6 +17,10 @@
 		1D766DEA1C3EC17400CFAD3D /* WrabbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DE91C3EC17400CFAD3D /* WrabbleTests.swift */; };
 		1D766DF51C3EC17400CFAD3D /* WrabbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DF41C3EC17400CFAD3D /* WrabbleUITests.swift */; };
 		4F500CF48BAC4453DDED6C0F /* Pods_Wrabble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */; };
+		FD723CDE1C3FCF230068064E /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD723CDD1C3FCF230068064E /* FirstViewController.xib */; };
+		FD723CE01C3FD0090068064E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD723CDF1C3FD0090068064E /* AVFoundation.framework */; };
+		FD723CE21C3FD00F0068064E /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD723CE11C3FD00F0068064E /* AVKit.framework */; };
+		FD9EAA4D1C3FD3D400B1262F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD9EAA4C1C3FD3D400B1262F /* Keys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,12 @@
 		664B52BAB258DF84DD97304D /* Pods-Wrabble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wrabble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wrabble/Pods-Wrabble.debug.xcconfig"; sourceTree = "<group>"; };
 		67467AF47E3788DDF38312E2 /* Pods-Wrabble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wrabble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wrabble/Pods-Wrabble.release.xcconfig"; sourceTree = "<group>"; };
 		B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wrabble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD723CDD1C3FCF230068064E /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
+		FD723CDF1C3FD0090068064E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FD723CE11C3FD00F0068064E /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		FD723CE31C3FD1480068064E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Pods/../build/Debug-iphoneos/Bolts.framework"; sourceTree = "<group>"; };
+		FD723CE51C3FD14D0068064E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Pods/../build/Debug-iphoneos/Parse.framework"; sourceTree = "<group>"; };
+		FD9EAA4C1C3FD3D400B1262F /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD723CE21C3FD00F0068064E /* AVKit.framework in Frameworks */,
+				FD723CE01C3FD0090068064E /* AVFoundation.framework in Frameworks */,
 				4F500CF48BAC4453DDED6C0F /* Pods_Wrabble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,12 +123,14 @@
 			children = (
 				1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
+				FD723CDD1C3FCF230068064E /* FirstViewController.xib */,
 				1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */,
 				1D766DD81C3EC17400CFAD3D /* Main.storyboard */,
 				1D766DDB1C3EC17400CFAD3D /* Assets.xcassets */,
 				1D766DDD1C3EC17400CFAD3D /* LaunchScreen.storyboard */,
 				1D766DE01C3EC17400CFAD3D /* Info.plist */,
 				1D71429A1C3FAF360002FF65 /* Keys.plist */,
+				FD9EAA4C1C3FD3D400B1262F /* Keys.plist */,
 				1D7142971C3FAC9D0002FF65 /* Wrabble-Bridging-Header.h */,
 			);
 			path = Wrabble;
@@ -143,6 +157,10 @@
 		32319A677FC11C4C8A3E4BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD723CE51C3FD14D0068064E /* Parse.framework */,
+				FD723CE31C3FD1480068064E /* Bolts.framework */,
+				FD723CE11C3FD00F0068064E /* AVKit.framework */,
+				FD723CDF1C3FD0090068064E /* AVFoundation.framework */,
 				B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */,
 			);
 			name = Frameworks;
@@ -264,7 +282,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9EAA4D1C3FD3D400B1262F /* Keys.plist in Resources */,
 				1D71429B1C3FAF360002FF65 /* Keys.plist in Resources */,
+				FD723CDE1C3FCF230068064E /* FirstViewController.xib in Resources */,
 				1D766DDF1C3EC17400CFAD3D /* LaunchScreen.storyboard in Resources */,
 				1D766DDC1C3EC17400CFAD3D /* Assets.xcassets in Resources */,
 				1D766DDA1C3EC17400CFAD3D /* Main.storyboard in Resources */,
@@ -484,12 +504,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Wrabble/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Wrable.Wrabble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Wrabble/Wrabble-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -499,11 +525,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Wrabble/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Wrable.Wrabble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Wrabble/Wrabble-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
