@@ -8,17 +8,27 @@
 
 import UIKit
 import Parse
+import AVFoundation
 
-class LoginViewController: UIViewController {
+
+class LoginViewController: UIViewController, UINavigationControllerDelegate {
+    
+    @IBOutlet var signupButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    override func viewWillAppear(animated: Bool) {
-      
+ 
+    
+    @IBAction func signup(sender: UIButton) {
+        
+        let lc = SignupViewController(nibName: "SignupViewController", bundle: nil)
+        
+        self.navigationController!.pushViewController (lc, animated: false)
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

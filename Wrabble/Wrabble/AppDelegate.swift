@@ -29,16 +29,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Parse Initialization.
         Parse.setApplicationId(applicationId, clientKey: clientKey)
         
-        //seting up a root controller
+//seting up a root controller
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.makeKeyAndVisible()
 
+
         // Create a nav/vc pair using the custom ViewController class
         
-        let vc = LoginViewController ( nibName:"LoginViewController", bundle: nil)
+        let vc = LoginViewController ( nibName:"LoginViewController", bundle: nil) //<-- allocazing
+        
+        let navC = UINavigationController(rootViewController:vc)
+        
+        
+//        navC.navigationBar.hidden = true
         
         // Set the window’s root view controller
-        self.window?.rootViewController = vc
+        self.window?.rootViewController = navC
         
         // Present the window
         

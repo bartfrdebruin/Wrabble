@@ -19,6 +19,8 @@
 		9C3C9F9C1C3FED47002CDB3C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3C9F9A1C3FED47002CDB3C /* LoginViewController.xib */; };
 		9C3C9F9E1C3FEDCD002CDB3C /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C3C9F9D1C3FEDCD002CDB3C /* Keys.plist */; };
 		9C3C9FA01C3FEDEB002CDB3C /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C3C9F9F1C3FEDEB002CDB3C /* Keys.plist */; };
+		9C3C9FA51C400492002CDB3C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C9FA31C400492002CDB3C /* SignupViewController.swift */; };
+		9C3C9FA61C400492002CDB3C /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3C9FA41C400492002CDB3C /* SignupViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		9C3C9F9A1C3FED47002CDB3C /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		9C3C9F9D1C3FEDCD002CDB3C /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		9C3C9F9F1C3FEDEB002CDB3C /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		9C3C9FA31C400492002CDB3C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		9C3C9FA41C400492002CDB3C /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wrabble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +120,8 @@
 				1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
 				1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */,
+				9C3C9FA31C400492002CDB3C /* SignupViewController.swift */,
+				9C3C9FA41C400492002CDB3C /* SignupViewController.xib */,
 				9C3C9F991C3FED47002CDB3C /* LoginViewController.swift */,
 				9C3C9F9A1C3FED47002CDB3C /* LoginViewController.xib */,
 				1D766DDB1C3EC17400CFAD3D /* Assets.xcassets */,
@@ -270,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C3C9FA61C400492002CDB3C /* SignupViewController.xib in Resources */,
 				9C3C9FA01C3FEDEB002CDB3C /* Keys.plist in Resources */,
 				9C3C9F9E1C3FEDCD002CDB3C /* Keys.plist in Resources */,
 				9C3C9F9C1C3FED47002CDB3C /* LoginViewController.xib in Resources */,
@@ -349,6 +356,7 @@
 			files = (
 				9C3C9F9B1C3FED47002CDB3C /* LoginViewController.swift in Sources */,
 				1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */,
+				9C3C9FA51C400492002CDB3C /* SignupViewController.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,
 			);
