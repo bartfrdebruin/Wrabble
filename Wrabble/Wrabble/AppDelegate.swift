@@ -29,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Parse Initialization.
         Parse.setApplicationId(applicationId, clientKey: clientKey)
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.makeKeyAndVisible()
+
+
         let first = FirstViewController()
         self.window?.rootViewController = first
         return true
