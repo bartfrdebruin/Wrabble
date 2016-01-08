@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D71429B1C3FAF360002FF65 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D71429A1C3FAF360002FF65 /* Keys.plist */; };
 		1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */; };
 		1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */; };
 		1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */; };
@@ -15,6 +16,7 @@
 		1D766DDF1C3EC17400CFAD3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D766DDD1C3EC17400CFAD3D /* LaunchScreen.storyboard */; };
 		1D766DEA1C3EC17400CFAD3D /* WrabbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DE91C3EC17400CFAD3D /* WrabbleTests.swift */; };
 		1D766DF51C3EC17400CFAD3D /* WrabbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DF41C3EC17400CFAD3D /* WrabbleUITests.swift */; };
+		4F500CF48BAC4453DDED6C0F /* Pods_Wrabble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D7142971C3FAC9D0002FF65 /* Wrabble-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wrabble-Bridging-Header.h"; sourceTree = "<group>"; };
+		1D71429A1C3FAF360002FF65 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		1D766DCF1C3EC17400CFAD3D /* Wrabble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wrabble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,9 @@
 		1D766DF01C3EC17400CFAD3D /* WrabbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WrabbleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D766DF41C3EC17400CFAD3D /* WrabbleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrabbleUITests.swift; sourceTree = "<group>"; };
 		1D766DF61C3EC17400CFAD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		664B52BAB258DF84DD97304D /* Pods-Wrabble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wrabble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wrabble/Pods-Wrabble.debug.xcconfig"; sourceTree = "<group>"; };
+		67467AF47E3788DDF38312E2 /* Pods-Wrabble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wrabble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wrabble/Pods-Wrabble.release.xcconfig"; sourceTree = "<group>"; };
+		B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wrabble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F500CF48BAC4453DDED6C0F /* Pods_Wrabble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +91,8 @@
 				1D766DE81C3EC17400CFAD3D /* WrabbleTests */,
 				1D766DF31C3EC17400CFAD3D /* WrabbleUITests */,
 				1D766DD01C3EC17400CFAD3D /* Products */,
+				F07D2A006996F30F49767F04 /* Pods */,
+				32319A677FC11C4C8A3E4BB8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +116,8 @@
 				1D766DDB1C3EC17400CFAD3D /* Assets.xcassets */,
 				1D766DDD1C3EC17400CFAD3D /* LaunchScreen.storyboard */,
 				1D766DE01C3EC17400CFAD3D /* Info.plist */,
+				1D71429A1C3FAF360002FF65 /* Keys.plist */,
+				1D7142971C3FAC9D0002FF65 /* Wrabble-Bridging-Header.h */,
 			);
 			path = Wrabble;
 			sourceTree = "<group>";
@@ -128,6 +140,23 @@
 			path = WrabbleUITests;
 			sourceTree = "<group>";
 		};
+		32319A677FC11C4C8A3E4BB8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F07D2A006996F30F49767F04 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				664B52BAB258DF84DD97304D /* Pods-Wrabble.debug.xcconfig */,
+				67467AF47E3788DDF38312E2 /* Pods-Wrabble.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D766DF91C3EC17400CFAD3D /* Build configuration list for PBXNativeTarget "Wrabble" */;
 			buildPhases = (
+				ED760484A2DD5C08562A5F2A /* Check Pods Manifest.lock */,
 				1D766DCB1C3EC17400CFAD3D /* Sources */,
 				1D766DCC1C3EC17400CFAD3D /* Frameworks */,
 				1D766DCD1C3EC17400CFAD3D /* Resources */,
+				1368ABADDA598CDC247A3A24 /* Embed Pods Frameworks */,
+				53A4D9DA41161F8162A4C5DB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D71429B1C3FAF360002FF65 /* Keys.plist in Resources */,
 				1D766DDF1C3EC17400CFAD3D /* LaunchScreen.storyboard in Resources */,
 				1D766DDC1C3EC17400CFAD3D /* Assets.xcassets in Resources */,
 				1D766DDA1C3EC17400CFAD3D /* Main.storyboard in Resources */,
@@ -253,6 +286,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1368ABADDA598CDC247A3A24 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wrabble/Pods-Wrabble-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53A4D9DA41161F8162A4C5DB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wrabble/Pods-Wrabble-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED760484A2DD5C08562A5F2A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D766DCB1C3EC17400CFAD3D /* Sources */ = {
@@ -399,23 +480,30 @@
 		};
 		1D766DFA1C3EC17400CFAD3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 664B52BAB258DF84DD97304D /* Pods-Wrabble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Wrabble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Wrable.Wrabble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wrabble/Wrabble-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1D766DFB1C3EC17400CFAD3D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67467AF47E3788DDF38312E2 /* Pods-Wrabble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Wrabble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Wrable.Wrabble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wrabble/Wrabble-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -486,6 +574,7 @@
 				1D766DFB1C3EC17400CFAD3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D766DFC1C3EC17400CFAD3D /* Build configuration list for PBXNativeTarget "WrabbleTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +583,7 @@
 				1D766DFE1C3EC17400CFAD3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D766DFF1C3EC17400CFAD3D /* Build configuration list for PBXNativeTarget "WrabbleUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +592,7 @@
 				1D766E011C3EC17400CFAD3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
