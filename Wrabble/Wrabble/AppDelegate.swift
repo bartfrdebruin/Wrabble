@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,19 +16,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+       
         
         // Keys.plist with applicationID and clientID of Parse.
         var loginDictionary: NSDictionary?
         let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")
         loginDictionary = NSDictionary(contentsOfFile: path!)
         
-        var applicationId = (loginDictionary!["parseApplicationId"] as! String)
-        var clientKey = (loginDictionary!["parseClientKey"] as! String)
+        let applicationId = (loginDictionary!["parseApplicationId"] as! String)
+        let clientKey = (loginDictionary!["parseClientKey"] as! String)
         
         // Parse Initialization.
         Parse.setApplicationId(applicationId, clientKey: clientKey)
+        
+        //seting up a root controller
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.makeKeyAndVisible()
+
+        // Create a nav/vc pair using the custom ViewController class
+        
+        let vc = LoginViewController ( nibName:"LoginViewController", bundle: nil)
+        
+        // Set the window’s root view controller
+        self.window?.rootViewController = vc
+        
+        // Present the window
+        
+        return true
+
    
     }
 
