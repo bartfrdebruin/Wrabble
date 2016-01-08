@@ -20,6 +20,7 @@
 		FD723CE01C3FD0090068064E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD723CDF1C3FD0090068064E /* AVFoundation.framework */; };
 		FD723CE21C3FD00F0068064E /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD723CE11C3FD00F0068064E /* AVKit.framework */; };
 		FD9EAA4D1C3FD3D400B1262F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD9EAA4C1C3FD3D400B1262F /* Keys.plist */; };
+		FD9EAA4F1C401FED00B1262F /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9EAA4E1C401FED00B1262F /* KYCircularProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		FD723CE31C3FD1480068064E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Pods/../build/Debug-iphoneos/Bolts.framework"; sourceTree = "<group>"; };
 		FD723CE51C3FD14D0068064E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Pods/../build/Debug-iphoneos/Parse.framework"; sourceTree = "<group>"; };
 		FD9EAA4C1C3FD3D400B1262F /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		FD9EAA4E1C401FED00B1262F /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCircularProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
+				FD9EAA4E1C401FED00B1262F /* KYCircularProgress.swift */,
 				FD723CDD1C3FCF230068064E /* FirstViewController.xib */,
 				1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */,
 				1D766DDB1C3EC17400CFAD3D /* Assets.xcassets */,
@@ -359,6 +362,7 @@
 				1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,
+				FD9EAA4F1C401FED00B1262F /* KYCircularProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

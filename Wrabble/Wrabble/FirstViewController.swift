@@ -10,31 +10,25 @@ import UIKit
 import AVFoundation
 import Parse
 
-/**
- Uses AVAudioRecorder to record a sound file and an AVAudioPlayer to play it back.
- - Author: Gene De Lisa
- */
-class FirstViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
+
+ class FirstViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     var recorder: AVAudioRecorder!
     
     var player:AVAudioPlayer!
     
     @IBOutlet var recordButton: UIButton!
-    
     @IBOutlet var stopButton: UIButton!
-    
     @IBOutlet var playButton: UIButton!
-    
     @IBOutlet var statusLabel: UILabel!
-    
     @IBOutlet weak var saveButton: UIButton!
     
+    var circular : KYCircularProgress!
     var fileName : String!
-    
     var meterTimer:NSTimer!
-    
     var soundFileURL:NSURL!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +40,6 @@ class FirstViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
     }
     
     func updateAudioMeter(timer:NSTimer) {
-        
         if recorder.recording {
             let min = Int(recorder.currentTime / 60)
             let sec = Int(recorder.currentTime % 60)
@@ -134,6 +127,8 @@ class FirstViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
             player.prepareToPlay()
             player.volume = 1.0
             player.play()
+            progressCircular()
+            
         } catch let error as NSError {
             self.player = nil
             print(error.localizedDescription)
@@ -177,27 +172,23 @@ class FirstViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
     
     func recordWithPermission(setup:Bool) {
         let session:AVAudioSession = AVAudioSession.sharedInstance()
-        // ios 8 and later
         if (session.respondsToSelector("requestRecordPermission:")) {
             AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
                 if granted {
-                    print("Permission to record granted")
                     self.setSessionPlayAndRecord()
                     if setup {
                         self.setupRecorder()
                     }
-                    self.recorder.record()
+                    self.recorder.recordForDuration(5.0)
                     self.meterTimer = NSTimer.scheduledTimerWithTimeInterval(0.1,
                         target:self,
                         selector:"updateAudioMeter:",
                         userInfo:nil,
                         repeats:true)
                 } else {
-                    print("Permission to record not granted")
                 }
             })
         } else {
-            print("requestRecordPermission unrecognized")
         }
     }
     
@@ -244,27 +235,37 @@ class FirstViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
                     print("headphones are unplugged")
                 }
             }
-        } else {
-            print("checking headphones requires a connection to a device")
         }
     }
     
         
-   
-    
-    
+    func progressCircular() {
+        circular = KYCircularProgress(frame: CGRectMake(0, 0, 100, 100))
+        circular.center = CGPointMake(self.view.center.x, self.view.center.y - 50)
+        
 
+        self.view.addSubview(circular)
+        circular.colors = [UIColor(rgba: 0xA6E39D11), UIColor(rgba: 0xAEC1E355), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABFF)]
+        circular.lineWidth = 5
+        let displayLink = CADisplayLink(target: self, selector: ("updateProgress"))
+        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+    }
+    
+    func updateProgress() {
+        circular.progress = player.currentTime/player.duration
+
+    }
+    
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder,
         successfully flag: Bool) {
-            print("finished recording \(flag)")
             stopButton.enabled = false
             playButton.enabled = true
             recordButton.setTitle("Record", forState:.Normal)
     }
 
 
+    
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        print("finished playing \(flag)")
         recordButton.enabled = true
         stopButton.enabled = false
     }

@@ -21,37 +21,37 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyF-FK-LXX">
-                    <rect key="frame" x="24" y="215" width="122" height="30"/>
+                    <rect key="frame" x="8" y="358" width="122" height="30"/>
                     <state key="normal" title="Record"/>
                     <connections>
                         <action selector="record:" destination="-1" eventType="touchUpInside" id="wZp-Lp-DjL"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j44-gG-2Ax">
-                    <rect key="frame" x="145" y="133" width="31" height="30"/>
+                    <rect key="frame" x="138" y="358" width="31" height="30"/>
                     <state key="normal" title="stop"/>
                     <connections>
                         <action selector="stop:" destination="-1" eventType="touchUpInside" id="Jsx-P7-vew"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsO-9N-YTx">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsO-9N-YTx">
                     <rect key="frame" x="91" y="315" width="124" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dp5-4e-w1g">
-                    <rect key="frame" x="201" y="215" width="91" height="30"/>
-                    <state key="normal" title="Play"/>
-                    <connections>
-                        <action selector="play:" destination="-1" eventType="touchUpInside" id="nI0-jV-mmS"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yaw-1P-6TM">
                     <rect key="frame" x="135" y="402" width="37" height="30"/>
                     <state key="normal" title="SAVE"/>
                     <connections>
                         <action selector="save:" destination="-1" eventType="touchUpInside" id="GW0-CY-yxq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dp5-4e-w1g">
+                    <rect key="frame" x="221" y="358" width="91" height="30"/>
+                    <state key="normal" title="Play"/>
+                    <connections>
+                        <action selector="play:" destination="-1" eventType="touchUpInside" id="nI0-jV-mmS"/>
                     </connections>
                 </button>
             </subviews>
