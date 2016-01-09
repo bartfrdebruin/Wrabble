@@ -16,6 +16,9 @@
 		1D766DEA1C3EC17400CFAD3D /* WrabbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DE91C3EC17400CFAD3D /* WrabbleTests.swift */; };
 		1D766DF51C3EC17400CFAD3D /* WrabbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DF41C3EC17400CFAD3D /* WrabbleUITests.swift */; };
 		4F500CF48BAC4453DDED6C0F /* Pods_Wrabble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */; };
+		FD4503F01C4130AE00671501 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503EF1C4130AE00671501 /* TableViewController.swift */; };
+		FD4503F31C414AB100671501 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503F11C414AB100671501 /* TableViewCell.swift */; };
+		FD4503F41C414AB100671501 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503F21C414AB100671501 /* TableViewCell.xib */; };
 		FD723CDE1C3FCF230068064E /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD723CDD1C3FCF230068064E /* FirstViewController.xib */; };
 		FD723CE01C3FD0090068064E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD723CDF1C3FD0090068064E /* AVFoundation.framework */; };
 		FD723CE21C3FD00F0068064E /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD723CE11C3FD00F0068064E /* AVKit.framework */; };
@@ -59,6 +62,9 @@
 		664B52BAB258DF84DD97304D /* Pods-Wrabble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wrabble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wrabble/Pods-Wrabble.debug.xcconfig"; sourceTree = "<group>"; };
 		67467AF47E3788DDF38312E2 /* Pods-Wrabble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wrabble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wrabble/Pods-Wrabble.release.xcconfig"; sourceTree = "<group>"; };
 		B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wrabble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD4503EF1C4130AE00671501 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		FD4503F11C414AB100671501 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		FD4503F21C414AB100671501 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		FD723CDD1C3FCF230068064E /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		FD723CDF1C3FD0090068064E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FD723CE11C3FD00F0068064E /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -123,6 +129,9 @@
 			children = (
 				1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
+				FD4503EF1C4130AE00671501 /* TableViewController.swift */,
+				FD4503F11C414AB100671501 /* TableViewCell.swift */,
+				FD4503F21C414AB100671501 /* TableViewCell.xib */,
 				FD9EAA4E1C401FED00B1262F /* KYCircularProgress.swift */,
 				FD723CDD1C3FCF230068064E /* FirstViewController.xib */,
 				1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */,
@@ -283,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD9EAA4D1C3FD3D400B1262F /* Keys.plist in Resources */,
+				FD4503F41C414AB100671501 /* TableViewCell.xib in Resources */,
 				1D71429B1C3FAF360002FF65 /* Keys.plist in Resources */,
 				FD723CDE1C3FCF230068064E /* FirstViewController.xib in Resources */,
 				1D766DDF1C3EC17400CFAD3D /* LaunchScreen.storyboard in Resources */,
@@ -362,6 +372,8 @@
 				1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,
+				FD4503F31C414AB100671501 /* TableViewCell.swift in Sources */,
+				FD4503F01C4130AE00671501 /* TableViewController.swift in Sources */,
 				FD9EAA4F1C401FED00B1262F /* KYCircularProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

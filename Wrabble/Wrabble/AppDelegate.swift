@@ -32,11 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.makeKeyAndVisible()
 
-
-        let first = FirstViewController()
+        let first = TableViewController(style: .Plain)
         self.window?.rootViewController = first
         return true
-   
     }
 
     func applicationWillResignActive(application: UIApplication) {
