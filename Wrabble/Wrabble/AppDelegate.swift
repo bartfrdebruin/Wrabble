@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-       
+        // Override point for customization after application launch.
         
         // Keys.plist with applicationID and clientID of Parse.
-        var loginDictionary: NSDictionary?
+        var loginDictionary: NSDictionary!
         let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")
         loginDictionary = NSDictionary(contentsOfFile: path!)
         
@@ -29,33 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Parse Initialization.
         Parse.setApplicationId(applicationId, clientKey: clientKey)
         
-      //seting up a root controller
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window!.makeKeyAndVisible()
-
-
-        // Create a nav/vc pair using the custom ViewController class
+        // NavigationController.
+        let collectionVC: UIViewController = CollectionViewController()
+        let navigationController: UINavigationController = UINavigationController(rootViewController: collectionVC)
         
-        let login = LoginViewController ( nibName:"LoginViewController", bundle: nil) //<-- allocazing
-        let home = TableViewController()
+        // Hidding the navigationBar and showing the toolbar
+        navigationController.setNavigationBarHidden(true, animated: true)
+        navigationController.setToolbarHidden(false, animated: true)
         
-        if (PFUser.currentUser() != nil) {
-            let navC = UINavigationController(rootViewController:home)
-            navC.navigationBar.hidden = true
-            self.window?.rootViewController = navC
-        } else {
-            let navC = UINavigationController(rootViewController:login)
-            navC.navigationBar.hidden = true
-            self.window?.rootViewController = navC
-        }
-        
-
-        // Set the window’s root view controller
-        
-        // Present the window
+        self.window!.rootViewController = navigationController
         
         return true
-
    
     }
 
