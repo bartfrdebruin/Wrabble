@@ -4,7 +4,6 @@
 //
 //  Created by Bart de Bruin on 07-01-16.
 //  Copyright © 2016 Wrabble. All rights reserved.
-//
 
 import UIKit
 import AVFoundation
