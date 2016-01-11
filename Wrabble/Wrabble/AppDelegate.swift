@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Parse Initialization.
         Parse.setApplicationId(applicationId, clientKey: clientKey)
         
-//seting up a root controller
+      //seting up a root controller
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.makeKeyAndVisible()
 
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navC = UINavigationController(rootViewController:vc)
         
         
-//        navC.navigationBar.hidden = true
+        navC.navigationBar.hidden = true
         
         // Set the window’s root view controller
         self.window?.rootViewController = navC

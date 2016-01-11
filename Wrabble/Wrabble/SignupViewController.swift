@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import Parse
 
 class SignupViewController: UIViewController {
     @IBOutlet var littleView: UIView!
+    @IBOutlet var username: UITextField!
+    @IBOutlet var password: UITextField!
+    @IBOutlet var email: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        username.placeholder = "Username..."
+     
+        username.textColor = UIColor.blackColor()
+        email.placeholder = "Email..."
+        email.textColor = UIColor.blackColor()
+        password.placeholder = "Password..."
+        password.textColor = UIColor.blackColor()
 
-        // Do any additional setup after loading the view.
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -23,6 +35,28 @@ class SignupViewController: UIViewController {
             self.littleView.frame = self.view.frame
             
             }, completion: nil)    }
+    
+    @IBAction func signUp(sender: AnyObject) {
+        [self .mySignUp()]
+    }
+    
+    func mySignUp() {
+        let user = PFUser()
+        user.username = email.text
+        user.password = password.text
+        user.email = email.text
+    
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                // Show the errorString somewhere and let the user try again.
+            } else {
+                // Hooray! Let them use the app now.
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,14 +64,5 @@ class SignupViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
