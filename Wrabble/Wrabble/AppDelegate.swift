@@ -30,17 +30,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId(applicationId, clientKey: clientKey)
         
         // NavigationController.
-        let collectionVC: UIViewController = CollectionViewController()
-        let navigationController: UINavigationController = UINavigationController(rootViewController: collectionVC)
+        let home = TableViewController()
+        let login = LoginViewController()
         
-        // Hidding the navigationBar and showing the toolbar
-        navigationController.setNavigationBarHidden(true, animated: true)
-        navigationController.setToolbarHidden(false, animated: true)
-        
-        self.window!.rootViewController = navigationController
-        
+        if (PFUser.currentUser() != nil) {
+            let navigationController = UINavigationController(rootViewController: home)
+            setNav(navigationController)
+        } else {
+            let navigationController = UINavigationController(rootViewController: login)
+            setNav(navigationController)        }
         return true
-   
+    }
+    
+    // Hidding the navigationBar and showing the toolbar
+    func setNav(nav : UINavigationController){
+        nav.setNavigationBarHidden(true, animated: true)
+        nav.setToolbarHidden(false, animated: true)
+        self.window!.rootViewController = nav
     }
 
     func applicationWillResignActive(application: UIApplication) {
