@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D0AAD781C41476500D1E5E5 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AAD771C41476500D1E5E5 /* CollectionViewController.swift */; };
 		1D71429B1C3FAF360002FF65 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D71429A1C3FAF360002FF65 /* Keys.plist */; };
 		1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */; };
 		1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D0AAD771C41476500D1E5E5 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		1D689C5C1C4294C10044B0B8 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		1D7142971C3FAC9D0002FF65 /* Wrabble-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wrabble-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D71429A1C3FAF360002FF65 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		1D766DCF1C3EC17400CFAD3D /* Wrabble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wrabble.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */,
+				1D0AAD771C41476500D1E5E5 /* CollectionViewController.swift */,
+				1D689C5C1C4294C10044B0B8 /* CollectionViewController.xib */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
 				1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */,
 				1D766DD81C3EC17400CFAD3D /* Main.storyboard */,
@@ -340,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D0AAD781C41476500D1E5E5 /* CollectionViewController.swift in Sources */,
 				1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,
