@@ -36,15 +36,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Create a nav/vc pair using the custom ViewController class
         
-        let vc = LoginViewController ( nibName:"LoginViewController", bundle: nil) //<-- allocazing
+        let login = LoginViewController ( nibName:"LoginViewController", bundle: nil) //<-- allocazing
+        let home = TableViewController()
         
-        let navC = UINavigationController(rootViewController:vc)
+        if (PFUser.currentUser() != nil) {
+            let navC = UINavigationController(rootViewController:home)
+            navC.navigationBar.hidden = true
+            self.window?.rootViewController = navC
+        } else {
+            let navC = UINavigationController(rootViewController:login)
+            navC.navigationBar.hidden = true
+            self.window?.rootViewController = navC
+        }
         
-        
-        navC.navigationBar.hidden = true
-        
+
         // Set the window’s root view controller
-        self.window?.rootViewController = navC
         
         // Present the window
         
