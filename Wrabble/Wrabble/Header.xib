@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserViewController" customModule="Wrabble" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slide" translatesAutoresizingMaskIntoConstraints="NO" id="HNR-DE-Mbc">
+                    <rect key="frame" x="130" y="0.0" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="HNR-DE-Mbc" secondAttribute="height" multiplier="1:1" id="BSM-1a-ZUx"/>
+                        <constraint firstAttribute="height" constant="60" id="g3A-Ta-M33"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lG8-Kn-WsH">
+                    <rect key="frame" x="8" y="92" width="304" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNb-3r-k9Q">
+                            <rect key="frame" x="0.0" y="0.0" width="5" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhh-fb-KUH">
+                            <rect key="frame" x="93" y="0.0" width="58" height="30"/>
+                            <state key="normal" title="Follower"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmY-7H-0Kq">
+                            <rect key="frame" x="239" y="0.0" width="65" height="30"/>
+                            <state key="normal" title="Following"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="HNR-DE-Mbc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Koy-WI-5El"/>
+                <constraint firstItem="lG8-Kn-WsH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="OOs-6x-wcD"/>
+                <constraint firstAttribute="trailing" secondItem="lG8-Kn-WsH" secondAttribute="trailing" constant="8" id="WYO-yn-YOs"/>
+                <constraint firstItem="HNR-DE-Mbc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aPl-J8-YyE"/>
+                <constraint firstItem="lG8-Kn-WsH" firstAttribute="top" secondItem="HNR-DE-Mbc" secondAttribute="bottom" constant="32" id="bw1-FW-zMV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="140" y="376.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="slide" width="24" height="24"/>
+    </resources>
+</document>
