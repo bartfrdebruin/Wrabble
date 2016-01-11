@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D689C611C440B390044B0B8 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D689C601C440B390044B0B8 /* CollectionViewController.swift */; };
 		1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */; };
 		1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */; };
 		1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D689C601C440B390044B0B8 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		1D7142971C3FAC9D0002FF65 /* Wrabble-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wrabble-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D766DCF1C3EC17400CFAD3D /* Wrabble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wrabble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				FD4503FC1C43CC1A00671501 /* TableViewCell.xib */,
 				FD4503FD1C43CC1A00671501 /* TableViewController.swift */,
 				FD4503FE1C43CC1A00671501 /* TestViewController.swift */,
+				1D689C601C440B390044B0B8 /* CollectionViewController.swift */,
 				FD4503FF1C43CC1A00671501 /* TestViewController.xib */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
 				1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */,
@@ -382,6 +385,7 @@
 				1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */,
 				9C3C9FA51C400492002CDB3C /* SignupViewController.swift in Sources */,
 				FD4504041C43CC1A00671501 /* TableViewController.swift in Sources */,
+				1D689C611C440B390044B0B8 /* CollectionViewController.swift in Sources */,
 				FD4504011C43CC1A00671501 /* KYCircularProgress.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
 				FD4504021C43CC1A00671501 /* TableViewCell.swift in Sources */,
