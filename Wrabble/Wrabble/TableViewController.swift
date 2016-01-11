@@ -17,14 +17,13 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     var circular : KYCircularProgress!
     var pauseTime : NSTimeInterval!
     var tagPlaying : Int?
-
+    
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: .Grouped, className: "Wrabbles")
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
-
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,10 +47,10 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
-
+    
     func playRecord(sender : UIButton) {
         if (player != nil && player.playing == true){
-        self.afterPlay()
+            self.afterPlay()
         }
         let ob = objects![sender.tag] as! PFObject
         let file = ob["rec"] as! PFFile
@@ -84,16 +83,16 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
                 print(error.localizedDescription)
             }
         }
-        }
+    }
     
     func playing(indexPath : NSIndexPath) {
         
         let cell = tableView.visibleCells[indexPath.row] as! TableViewCell
         if (cell.detailView.hidden == true) {
-        
+            
         } else {
-        cell.detailView.hidden = true
-        cell.playingView.hidden = false
+            cell.detailView.hidden = true
+            cell.playingView.hidden = false
         }
         let min = Int(player.duration / 60)
         let sec = Int(player.duration % 60)
@@ -106,7 +105,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     }
     
     func setSlider() {
-          for cell in tableView.visibleCells as! [TableViewCell] {
+        for cell in tableView.visibleCells as! [TableViewCell] {
             cell.slider.maximumValue = Float(player.duration)
             cell.slider.setValue(Float(player.currentTime), animated: true)
         }
@@ -129,12 +128,15 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         cell.play.addTarget(self, action: "stop:", forControlEvents: .TouchUpInside)
         circular.center = cell.play.center
         
-        
         cell.miniView.addSubview(circular)
         circular.colors = [UIColor(rgba: 0xA6E39D11), UIColor(rgba: 0xAEC1E355), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABFF)]
         circular.lineWidth = 5
-        let displayLink = CADisplayLink(target: self, selector: ("updateProgress"))
-        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+        
+        circular.progress = 0
+        
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: "updateInfinity", userInfo: nil, repeats: true)
+        //        let displayLink = CADisplayLink(target: self, selector: ("updateProgress"))
+        //        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
     }
     
     func stop(sender : UIButton) {
@@ -153,10 +155,21 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         circular.progress = player.currentTime/player.duration
     }
     
+    func updateInfinity()
+    {
+        circular.progress += 0.01
+        let white = KYCircularProgress(frame: circular.frame)
+        white.progressGuideColor = UIColor.whiteColor()
+        circular.progress += 0.05
+        self.view.addSubview(white)
+        if (circular.progress > 0.99){
+            circular.progress = 0
+        }
+    }
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         afterPlay()
-            }
+    }
     
     func afterPlay () {
         for cell in tableView.visibleCells as! [TableViewCell] {
@@ -170,6 +183,4 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
             }
         }
     }
-    
-    
 }
