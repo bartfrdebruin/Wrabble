@@ -86,8 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Wrabble/Bolts.framework"
   install_framework "Pods-Wrabble/Parse.framework"
+  install_framework "Pods-Wrabble/ParseUI.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Wrabble/Bolts.framework"
   install_framework "Pods-Wrabble/Parse.framework"
+  install_framework "Pods-Wrabble/ParseUI.framework"
 fi

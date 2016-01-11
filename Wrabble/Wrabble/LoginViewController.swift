@@ -30,6 +30,8 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 print("yes, im a genius")
+                let home = TableViewController()
+                self.navigationController?.pushViewController(home, animated: true)
             } else {
                 // The login failed. Check error to see why.
             }

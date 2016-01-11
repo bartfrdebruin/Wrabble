@@ -4,6 +4,7 @@ use_frameworks!
 target 'Wrabble' do
 
 pod 'Parse'
+pod 'ParseUI'
 
 end
 
