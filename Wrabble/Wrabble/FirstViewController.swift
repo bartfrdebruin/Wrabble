@@ -11,7 +11,7 @@ import AVFoundation
 import Parse
 
 
- class FirstViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
+ class FirstViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UITextFieldDelegate {
     
     var recorder: AVAudioRecorder!
     
@@ -25,6 +25,7 @@ import Parse
     
     var circular : KYCircularProgress!
     var fileName : String!
+
     var meterTimer:NSTimer!
     var soundFileURL:NSURL!
     
@@ -51,13 +52,19 @@ import Parse
     
     
     @IBAction func save(sender: UIButton) {
-        let data = NSData(contentsOfURL: self.recorder.url)
-        let file = PFFile(name: fileName, data: data!)
-        let object = PFObject(className: "Wrabbles")
-        object["rec"] = file
-        object.saveInBackgroundWithBlock { (Bool, Error) -> Void in
-            self.saveButton.enabled = false
-        }
+        
+        let test = TestViewController()
+        self.view.addSubview(test.view)
+        let animate = CABasicAnimation(keyPath: "position.y")
+        animate.fromValue = 800
+        animate.toValue = self.view.center.y
+        test.view.layer.addAnimation(animate, forKey: "ciao")
+        let backButton = test.view.viewWithTag(1) as! UIButton
+        backButton.addTarget(self, action: "remove", forControlEvents: .TouchUpInside)
+        let saveBn = test.view.viewWithTag(2) as! UIButton
+        saveBn.addTarget(self, action: "saveRecord", forControlEvents: .TouchUpInside)
+        let field = test.view.viewWithTag(3) as! UITextField
+        field.placeholder = fileName
     }
     
     @IBAction func record(sender: UIButton) {
@@ -111,6 +118,46 @@ import Parse
         play()
     }
     
+    
+    func remove() {
+        let test =  self.view.subviews[self.view.subviews.count - 1]
+        test.layer.removeAllAnimations()
+        let animate = CABasicAnimation(keyPath: "position.y")
+        animate.fromValue = self.view.center.y
+        animate.toValue = 800
+        animate.delegate = self
+        let fading = CABasicAnimation(keyPath: "opacity")
+        fading.duration = 0.2
+        fading.fromValue = 1
+        fading.toValue = 0
+        fading.fillMode = kCAFillModeForwards
+        fading.removedOnCompletion = false
+        test.layer.addAnimation(animate, forKey: "ciao")
+        test.layer.addAnimation(fading, forKey: "alpha")
+
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+         self.view.subviews[self.view.subviews.count - 1].removeFromSuperview()
+    }
+    
+    func saveRecord(){
+        let data = NSData(contentsOfURL: self.recorder.url)
+        let name = self.view.subviews[self.view.subviews.count - 1].viewWithTag(3) as! UITextField
+        name.userInteractionEnabled = true
+        let file = PFFile(name: name.text, data: data!)
+        let object = PFObject(className: "Wrabbles")
+        object["rec"] = file
+        
+        object.saveInBackgroundWithBlock { (succeed, Error) -> Void in
+            if (succeed == true) {
+            self.remove()
+            } else {
+                print (Error!.userInfo["error"])
+        }
+        }
+    }
+    
     func play() {
         
         var url:NSURL?
@@ -162,7 +209,8 @@ import Parse
             recorder = try AVAudioRecorder(URL: soundFileURL, settings: recordSettings)
             recorder.delegate = self
             recorder.meteringEnabled = true
-            recorder.prepareToRecord() // creates/overwrites the file at soundFileURL
+            recorder.prepareToRecord()
+            // creates/overwrites the file at soundFileURL
         } catch let error as NSError {
             recorder = nil
             print(error.localizedDescription)

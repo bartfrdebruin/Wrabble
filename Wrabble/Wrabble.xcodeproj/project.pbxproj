@@ -19,6 +19,8 @@
 		FD4503F01C4130AE00671501 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503EF1C4130AE00671501 /* TableViewController.swift */; };
 		FD4503F31C414AB100671501 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503F11C414AB100671501 /* TableViewCell.swift */; };
 		FD4503F41C414AB100671501 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503F21C414AB100671501 /* TableViewCell.xib */; };
+		FD4503F71C43283C00671501 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503F51C43283C00671501 /* TestViewController.swift */; };
+		FD4503F81C43283C00671501 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503F61C43283C00671501 /* TestViewController.xib */; };
 		FD723CDE1C3FCF230068064E /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD723CDD1C3FCF230068064E /* FirstViewController.xib */; };
 		FD723CE01C3FD0090068064E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD723CDF1C3FD0090068064E /* AVFoundation.framework */; };
 		FD723CE21C3FD00F0068064E /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD723CE11C3FD00F0068064E /* AVKit.framework */; };
@@ -65,6 +67,8 @@
 		FD4503EF1C4130AE00671501 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FD4503F11C414AB100671501 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FD4503F21C414AB100671501 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		FD4503F51C43283C00671501 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FD4503F61C43283C00671501 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		FD723CDD1C3FCF230068064E /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		FD723CDF1C3FD0090068064E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FD723CE11C3FD00F0068064E /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -130,6 +134,8 @@
 				1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
 				FD4503EF1C4130AE00671501 /* TableViewController.swift */,
+				FD4503F51C43283C00671501 /* TestViewController.swift */,
+				FD4503F61C43283C00671501 /* TestViewController.xib */,
 				FD4503F11C414AB100671501 /* TableViewCell.swift */,
 				FD4503F21C414AB100671501 /* TableViewCell.xib */,
 				FD9EAA4E1C401FED00B1262F /* KYCircularProgress.swift */,
@@ -296,6 +302,7 @@
 				1D71429B1C3FAF360002FF65 /* Keys.plist in Resources */,
 				FD723CDE1C3FCF230068064E /* FirstViewController.xib in Resources */,
 				1D766DDF1C3EC17400CFAD3D /* LaunchScreen.storyboard in Resources */,
+				FD4503F81C43283C00671501 /* TestViewController.xib in Resources */,
 				1D766DDC1C3EC17400CFAD3D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4503F71C43283C00671501 /* TestViewController.swift in Sources */,
 				1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,

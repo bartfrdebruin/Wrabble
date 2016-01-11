@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.makeKeyAndVisible()
 
-        let first = TableViewController(style: .Plain)
+        let first = FirstViewController()
+//        let first = TableViewController(style: .Plain)
         self.window?.rootViewController = first
         return true
     }
