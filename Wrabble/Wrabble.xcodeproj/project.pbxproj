@@ -32,6 +32,7 @@
 		FD4504041C43CC1A00671501 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503FD1C43CC1A00671501 /* TableViewController.swift */; };
 		FD4504051C43CC1A00671501 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503FE1C43CC1A00671501 /* TestViewController.swift */; };
 		FD4504061C43CC1A00671501 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503FF1C43CC1A00671501 /* TestViewController.xib */; };
+		FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA55BC71C45669300C9BE74 /* SpinLoading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		FD4503FD1C43CC1A00671501 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FD4503FE1C43CC1A00671501 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FD4503FF1C43CC1A00671501 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		FDA55BC71C45669300C9BE74 /* SpinLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				FD2BFBF91C44135E0036EB9B /* UserViewController.swift */,
 				FD2BFC011C445B550036EB9B /* UserImage.swift */,
 				FD2BFBFD1C4419B80036EB9B /* Header.xib */,
+				FDA55BC71C45669300C9BE74 /* SpinLoading.swift */,
 				FD4503FE1C43CC1A00671501 /* TestViewController.swift */,
 				1D689C601C440B390044B0B8 /* CollectionViewController.swift */,
 				FD4503FF1C43CC1A00671501 /* TestViewController.xib */,
@@ -403,6 +406,7 @@
 				FD4504021C43CC1A00671501 /* TableViewCell.swift in Sources */,
 				FD4504051C43CC1A00671501 /* TestViewController.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,
+				FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

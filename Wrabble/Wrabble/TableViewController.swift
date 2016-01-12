@@ -22,7 +22,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         super.init(style: .Grouped, className: "Wrabbles")
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
-        tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
+//        tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,6 +38,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 90
     }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
         cell.titleLabel?.text = object!["name"] as? String
