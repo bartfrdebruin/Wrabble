@@ -32,6 +32,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     
     override func queryForTable() -> PFQuery {
         let query = PFQuery(className: "Wrabbles")
+        query.orderByDescending("createdAt")
         return query
     }
     

@@ -147,6 +147,9 @@ import Parse
         let file = PFFile(name: name.text, data: data!)
         let object = PFObject(className: "Wrabbles")
         object["rec"] = file
+        object["userID"] = PFUser.currentUser()?.objectId
+        object["username"] = PFUser.currentUser()?.username
+        object["name"] = name.text
         
         object.saveInBackgroundWithBlock { (succeed, Error) -> Void in
             if (succeed == true) {

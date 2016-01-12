@@ -19,6 +19,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.hidden = true
         emailLogin.placeholder = "Username..."
         password.placeholder = "Password..."
 
@@ -30,14 +31,39 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 print("yes, im a genius")
-                let home = TableViewController()
-                self.navigationController?.pushViewController(home, animated: true)
-            } else {
+                self.startTab()
+                } else {
                 // The login failed. Check error to see why.
             }
         }
     }
  
+    func startTab() {
+        let tabbar = UITabBarController()
+        let home = UserViewController()
+        let homeN = UINavigationController(rootViewController: home)
+        
+        let table = TableViewController()
+        let tableN = UINavigationController(rootViewController: table)
+        
+        let rec = FirstViewController()
+        let recN = UINavigationController(rootViewController: rec)
+        
+        let im2 = UIImage(named: "second")
+        home.tabBarItem.image = im2
+        let im3 = UIImage(named: "slide")
+        table.tabBarItem.image = im3
+        let im4 = UIImage(named: "first")
+        rec.tabBarItem.image = im4
+        
+        tabbar.viewControllers = [homeN, tableN,recN]
+        for viewC in tabbar.viewControllers! as! [UINavigationController]{
+            viewC.navigationBarHidden = true
+        }
+        self.presentViewController(tabbar, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func signup(sender: UIButton) {
         
         let lc = SignupViewController(nibName: "SignupViewController", bundle: nil)
