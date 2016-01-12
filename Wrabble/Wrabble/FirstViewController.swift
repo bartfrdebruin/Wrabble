@@ -28,8 +28,6 @@ import Parse
     var meterTimer:NSTimer!
     var soundFileURL:NSURL!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +35,11 @@ import Parse
         playButton.enabled = false
         setSessionPlayback()
         checkHeadphones()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        super.view.subviews.last?.removeFromSuperview()
     }
     
     func updateAudioMeter(timer:NSTimer) {
@@ -49,9 +52,7 @@ import Parse
         }
     }
     
-    
     @IBAction func save(sender: UIButton) {
-        
         let test = TestViewController()
         self.view.addSubview(test.view)
         let animate = CABasicAnimation(keyPath: "position.y")
@@ -113,8 +114,12 @@ import Parse
     }
     
     @IBAction func play(sender: UIButton) {
-        setSessionPlayback()
-        play()
+//        setSessionPlayback()
+//        play()
+        let circ = SpinLoading(frame: CGRectMake(0, 0, 100, 100))
+        circ.center = self.view.center
+        self.view.addSubview(circ)
+        circ.animate(120)
     }
     
     
@@ -270,8 +275,6 @@ import Parse
             print(error.localizedDescription)
         }
     }
-    
-    
     
     
     func checkHeadphones() {

@@ -14,7 +14,6 @@ import AVFoundation
 class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     
     var player : AVAudioPlayer!
-    var circular : KYCircularProgress!
     var pauseTime : NSTimeInterval!
     var tagPlaying : Int?
     
@@ -23,7 +22,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         super.init(style: .Grouped, className: "Wrabbles")
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
-        tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
+//        tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,6 +38,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 90
     }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
         cell.titleLabel?.text = object!["name"] as? String
@@ -76,10 +76,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
                     print("ANOTHER FILE")
                 }
                 let indexPath = NSIndexPath(forRow: sender.tag, inSection: 1)
-                if (self.circular != nil) {
-                    self.circular.removeFromSuperview()}
-                self.progressCircular(indexPath)
-                self.playing(indexPath)
+                    self.playing(indexPath)
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -95,6 +92,9 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
             cell.detailView.hidden = true
             cell.playingView.hidden = false
         }
+        cell.play.setTitle("||", forState: .Normal)
+        cell.play.removeTarget(self, action: "playRecord:", forControlEvents: .TouchUpInside)
+        cell.play.addTarget(self, action: "stop:", forControlEvents: .TouchUpInside)
         let min = Int(player.duration / 60)
         let sec = Int(player.duration % 60)
         let s = String(format: "%02d:%02d", min, sec)
@@ -117,28 +117,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         let cell = tableView.visibleCells[indexPath.row] as! TableViewCell
         player.currentTime = Double(cell.slider.value)
     }
-    
-    
-    func progressCircular(indexPath : NSIndexPath) {
-        circular = KYCircularProgress(frame: CGRectMake(0, 0, 50, 50))
-        
-        let cell = tableView.visibleCells[indexPath.row] as! TableViewCell
-        
-        cell.play.setTitle("||", forState: .Normal)
-        cell.play.removeTarget(self, action: "playRecord:", forControlEvents: .TouchUpInside)
-        cell.play.addTarget(self, action: "stop:", forControlEvents: .TouchUpInside)
-        circular.center = cell.play.center
-        
-        cell.miniView.addSubview(circular)
-        circular.colors = [UIColor(rgba: 0xA6E39D11), UIColor(rgba: 0xAEC1E355), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABFF)]
-        circular.lineWidth = 5
-        
-        circular.progress = 0
-        
-        let timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: "updateInfinity", userInfo: nil, repeats: true)
-        //        let displayLink = CADisplayLink(target: self, selector: ("updateProgress"))
-        //        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
-    }
+
     
     func stop(sender : UIButton) {
         player.pause()
@@ -152,21 +131,6 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     }
     
     
-    func updateProgress() {
-        circular.progress = player.currentTime/player.duration
-    }
-    
-    func updateInfinity()
-    {
-        circular.progress += 0.01
-        let white = KYCircularProgress(frame: circular.frame)
-        white.progressGuideColor = UIColor.whiteColor()
-        circular.progress += 0.05
-        self.view.addSubview(white)
-        if (circular.progress > 0.99){
-            circular.progress = 0
-        }
-    }
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         afterPlay()
@@ -179,9 +143,6 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
             cell.play.setTitle("Play", forState: .Normal)
             cell.play.removeTarget(self, action: "stop:", forControlEvents: .TouchUpInside)
             cell.play.addTarget(self, action: "playRecord:", forControlEvents: .TouchUpInside)
-            if (circular != nil) {
-                circular.removeFromSuperview()
-            }
         }
     }
 }

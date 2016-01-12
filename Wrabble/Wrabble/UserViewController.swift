@@ -16,10 +16,9 @@ class UserViewController: PFQueryTableViewController, UINavigationControllerDele
     var user : PFUser!
     
     override init(style: UITableViewStyle, className: String?) {
-        super.init(style: .Grouped, className: "Wrabbles")
+        super.init(style: .Plain, className: "Wrabbles")
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
-        tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
         user = PFUser.currentUser()
         user.fetchInBackground()
     }
