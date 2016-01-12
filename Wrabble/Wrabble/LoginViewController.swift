@@ -46,8 +46,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
         PFUser.logInWithUsernameInBackground(emailLogin.text!, password:password.text!) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
-                let home = TableViewController()
-                self.navigationController?.pushViewController(home, animated: true)
+                self.startTab()
             } else {
                 // The login failed. Check error to see why.
                 self.warningLogin.hidden = false
@@ -55,6 +54,31 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
                 
             }
         }
+    }
+    
+    func startTab() {
+        let tabbar = UITabBarController()
+        let home = UserViewController()
+        let homeN = UINavigationController(rootViewController: home)
+        
+        let table = TableViewController()
+        let tableN = UINavigationController(rootViewController: table)
+        
+        let rec = FirstViewController()
+        let recN = UINavigationController(rootViewController: rec)
+        
+        let im2 = UIImage(named: "second")
+        home.tabBarItem.image = im2
+        let im3 = UIImage(named: "slide")
+        table.tabBarItem.image = im3
+        let im4 = UIImage(named: "first")
+        rec.tabBarItem.image = im4
+        
+        tabbar.viewControllers = [homeN, tableN,recN]
+        for viewC in tabbar.viewControllers! as! [UINavigationController]{
+            viewC.navigationBarHidden = true
+        }
+        self.navigationController?.pushViewController(tabbar, animated: true)
     }
  
     @IBAction func signup(sender: UIButton) {
