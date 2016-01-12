@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var littleView: UIView!
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
@@ -18,8 +18,12 @@ class SignupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.username.delegate = self
+        self.email.delegate = self
+        self.password.delegate = self
+        
         username.placeholder = "Username..."
-     
         username.textColor = UIColor.blackColor()
         email.placeholder = "Email..."
         email.textColor = UIColor.blackColor()
@@ -31,6 +35,8 @@ class SignupViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setToolbarHidden(true, animated: true)
+
         UIView.animateWithDuration(3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 8, options: .AllowUserInteraction, animations: { () -> Void in
             self.littleView.frame = self.view.frame
             
@@ -56,6 +62,14 @@ class SignupViewController: UIViewController {
                 // Hooray! Let them use the app now.
             }
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool  {
+        username.resignFirstResponder()
+        email.resignFirstResponder()
+        password.resignFirstResponder()
+        
+        return true
     }
 
     override func didReceiveMemoryWarning() {
