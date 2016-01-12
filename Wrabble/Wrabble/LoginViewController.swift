@@ -23,6 +23,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.hidden = true
         self.emailLogin.delegate = self
         self.password.delegate = self
         self.warningLogin.hidden = true
