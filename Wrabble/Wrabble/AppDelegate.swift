@@ -29,26 +29,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Parse Initialization.
         Parse.setApplicationId(applicationId, clientKey: clientKey)
         
-        // NavigationController.
-        let home = TableViewController()
-        let login = LoginViewController()
+        
         
         if (PFUser.currentUser() != nil) {
-            let navigationController = UINavigationController(rootViewController: home)
-            setNav(navigationController)
+            startTab()
         } else {
-            let navigationController = UINavigationController(rootViewController: login)
-            setNav(navigationController)        }
+            let tabbar = UITabBarController()
+            setNav(tabbar)
+        }
         return true
     }
     
-    // Hidding the navigationBar and showing the toolbar
-    func setNav(nav : UINavigationController){
-        nav.setNavigationBarHidden(true, animated: true)
-        nav.setToolbarHidden(false, animated: true)
+    func setNav(nav : UITabBarController){
+        let login = LoginViewController()
+        nav.tabBar.hidden = true
+        nav.viewControllers = [login]
         self.window!.rootViewController = nav
     }
-
+    
+    func startTab() {
+        let tabbar = UITabBarController()
+        let home = UserViewController()
+        let homeN = UINavigationController(rootViewController: home)
+        
+        let table = TableViewController()
+        let tableN = UINavigationController(rootViewController: table)
+        
+        let rec = FirstViewController()
+        let recN = UINavigationController(rootViewController: rec)
+        
+        let im2 = UIImage(named: "second")
+        home.tabBarItem.image = im2
+        let im3 = UIImage(named: "slide")
+        table.tabBarItem.image = im3
+        let im4 = UIImage(named: "first")
+        rec.tabBarItem.image = im4
+        
+        tabbar.viewControllers = [homeN, tableN,recN]
+        for viewC in tabbar.viewControllers! as! [UINavigationController]{
+            viewC.navigationBarHidden = true
+        }
+        self.window!.rootViewController = tabbar
+        
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
