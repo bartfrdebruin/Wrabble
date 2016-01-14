@@ -113,7 +113,7 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         self.view.addSubview(keep)
         }
         let animate = CABasicAnimation(keyPath: "position.y")
-        animate.duration = 1.5
+        animate.duration = 1.2
         animate.fromValue = self.view.frame.size.height
         animate.toValue = self.view.frame.size.height - (self.tabBar.frame.height)
         animate.delegate = self
@@ -125,6 +125,7 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         fading.removedOnCompletion = false
         keep.layer.addAnimation(animate, forKey: "incoming")
         keep.layer.addAnimation(fading, forKey: "alpha")
+        keep.layer.position = CGPointMake(self.view.center.x, self.view.frame.size.height - (self.tabBar.frame.height))
     }
     
     func setSave() {
@@ -136,12 +137,12 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         animate.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animate.toValue = self.view.center.y
         test.view.layer.addAnimation(animate, forKey: "incoming")
+        test.view.layer.position = CGPointMake(self.view.center.x, self.view.center.y)
         let backButton = test.view.viewWithTag(1) as! UIButton
         backButton.addTarget(self, action: "remove", forControlEvents: .TouchUpInside)
         let saveBn = test.view.viewWithTag(2) as! UIButton
         saveBn.addTarget(self, action: "saveRecord", forControlEvents: .TouchUpInside)
         self.tabBar.userInteractionEnabled = false
-
     }
     
     func saveRecord(){

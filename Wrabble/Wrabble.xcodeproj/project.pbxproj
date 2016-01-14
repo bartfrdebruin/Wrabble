@@ -23,7 +23,6 @@
 		9C3C9FA61C400492002CDB3C /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3C9FA41C400492002CDB3C /* SignupViewController.xib */; };
 		FD2BFBFB1C44135E0036EB9B /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2BFBF91C44135E0036EB9B /* UserViewController.swift */; };
 		FD2BFBFE1C4419B80036EB9B /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD2BFBFD1C4419B80036EB9B /* Header.xib */; };
-		FD2BFC021C445B550036EB9B /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2BFC011C445B550036EB9B /* UserImage.swift */; };
 		FD4504001C43CC1A00671501 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503F91C43CC1A00671501 /* FirstViewController.xib */; };
 		FD4504011C43CC1A00671501 /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503FA1C43CC1A00671501 /* KYCircularProgress.swift */; };
 		FD4504021C43CC1A00671501 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503FB1C43CC1A00671501 /* TableViewCell.swift */; };
@@ -36,6 +35,7 @@
 		FD71F8B61C47B46B004BCD67 /* KeepPressed.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */; };
 		FD71F8B81C47CE2F004BCD67 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8B71C47CE2F004BCD67 /* Recorder.swift */; };
 		FD71F8BA1C4806FF004BCD67 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8B91C4806FF004BCD67 /* CollectionViewController.xib */; };
+		FD71F8BE1C4822CE004BCD67 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8BD1C4822CE004BCD67 /* MenuView.xib */; };
 		FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA55BC71C45669300C9BE74 /* SpinLoading.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +82,6 @@
 		B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wrabble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BFBF91C44135E0036EB9B /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		FD2BFBFD1C4419B80036EB9B /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
-		FD2BFC011C445B550036EB9B /* UserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
 		FD4503F91C43CC1A00671501 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		FD4503FA1C43CC1A00671501 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCircularProgress.swift; sourceTree = "<group>"; };
 		FD4503FB1C43CC1A00671501 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeepPressed.xib; sourceTree = "<group>"; };
 		FD71F8B71C47CE2F004BCD67 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		FD71F8B91C4806FF004BCD67 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		FD71F8BD1C4822CE004BCD67 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		FDA55BC71C45669300C9BE74 /* SpinLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,11 +160,11 @@
 				FD4503FC1C43CC1A00671501 /* TableViewCell.xib */,
 				FD4503FD1C43CC1A00671501 /* TableViewController.swift */,
 				FD2BFBF91C44135E0036EB9B /* UserViewController.swift */,
-				FD2BFC011C445B550036EB9B /* UserImage.swift */,
 				FD2BFBFD1C4419B80036EB9B /* Header.xib */,
 				FDA55BC71C45669300C9BE74 /* SpinLoading.swift */,
 				FD4503FE1C43CC1A00671501 /* TestViewController.swift */,
 				1D689C601C440B390044B0B8 /* CollectionViewController.swift */,
+				FD71F8BD1C4822CE004BCD67 /* MenuView.xib */,
 				FD71F8B91C4806FF004BCD67 /* CollectionViewController.xib */,
 				FD4503FF1C43CC1A00671501 /* TestViewController.xib */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
@@ -330,6 +330,7 @@
 				9C3C9F9C1C3FED47002CDB3C /* LoginViewController.xib in Resources */,
 				FD4504061C43CC1A00671501 /* TestViewController.xib in Resources */,
 				FD71F8BA1C4806FF004BCD67 /* CollectionViewController.xib in Resources */,
+				FD71F8BE1C4822CE004BCD67 /* MenuView.xib in Resources */,
 				FD71F8AE1C46B277004BCD67 /* TabViewController.xib in Resources */,
 				1D766DDF1C3EC17400CFAD3D /* LaunchScreen.storyboard in Resources */,
 				FD2BFBFE1C4419B80036EB9B /* Header.xib in Resources */,
@@ -417,7 +418,6 @@
 				FD71F8B81C47CE2F004BCD67 /* Recorder.swift in Sources */,
 				FD4504011C43CC1A00671501 /* KYCircularProgress.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
-				FD2BFC021C445B550036EB9B /* UserImage.swift in Sources */,
 				FD4504021C43CC1A00671501 /* TableViewCell.swift in Sources */,
 				FD4504051C43CC1A00671501 /* TestViewController.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,
