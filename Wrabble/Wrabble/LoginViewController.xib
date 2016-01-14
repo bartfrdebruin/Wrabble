@@ -105,7 +105,7 @@
                                 <constraint firstAttribute="width" constant="160" id="34n-Sz-RNd"/>
                                 <constraint firstAttribute="height" constant="21" id="QgV-r9-Ykc"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <variation key="default">
