@@ -16,8 +16,8 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
     @IBOutlet var signupButton: UIButton!
     @IBOutlet var emailLogin: UITextField!
     @IBOutlet var password: UITextField!
-    @IBOutlet var blur: UIVisualEffectView!
-    @IBOutlet var warningLogin: UIView!
+    @IBOutlet var oops: UILabel!
+    @IBOutlet var closeButton: UIButton!
 
     
     
@@ -26,19 +26,23 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
         self.tabBarController?.tabBar.hidden = true
         self.emailLogin.delegate = self
         self.password.delegate = self
-        self.warningLogin.hidden = true
-        self.blur.hidden = true
+        self.oops.hidden = true
+        self.closeButton.hidden = true
         self.navigationController?.setToolbarHidden(true, animated: true)
         emailLogin.placeholder = "Username..."
         password.placeholder = "Password..."
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func dismissWarning(sender: AnyObject) {
         
-        self.warningLogin.hidden = true
-        self.blur.hidden = true
+        self.oops.hidden = true
+        self.closeButton.hidden = true
+        self.view.subviews.last?.removeFromSuperview()
+        self.view.subviews.last?.removeFromSuperview()
+        self.view.subviews.last?.removeFromSuperview()
+    
+
         
     }
     @IBAction func login(sender: AnyObject) {
@@ -49,8 +53,19 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
                 self.startTab()
             } else {
                 // The login failed. Check error to see why.
-                self.warningLogin.hidden = false
-                self.blur.hidden = false
+                self.oops.hidden = false
+                self.closeButton.hidden = false
+                //bluring background
+                let blurEffect = UIBlurEffect(style: .Light)
+                // 2
+                let blurView = UIVisualEffectView(effect: blurEffect)
+                // 3
+                blurView.frame = self.view.bounds
+                // sharp dismiss view
+//                blurView.contentView.addSubview(self.oops)
+                self.view.addSubview(blurView)
+                self.view.addSubview(self.oops)
+                self.view.addSubview(self.closeButton)
                 
             }
         }
