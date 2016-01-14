@@ -125,7 +125,7 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         self.tabBarController?.tabBar.userInteractionEnabled = false
         menu.userInteractionEnabled = true
         let anim = CABasicAnimation(keyPath: "position.x")
-        anim.fromValue = 0-menu.frame.size.width/2
+        anim.fromValue = 0-menu.frame.size.width
         anim.toValue = menu.frame.size.width/2
         anim.duration = 0.6
         anim.removedOnCompletion = true
@@ -141,13 +141,12 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         self.tabBarController?.tabBar.userInteractionEnabled = true
         let exit = CABasicAnimation(keyPath: "position.x")
         exit.fromValue = menu.frame.size.width/2
-        exit.toValue = 0-menu.frame.size.width/2
+        exit.toValue = 0-menu.frame.size.width
         exit.duration = 0.6
         exit.delegate = self
         exit.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         menu.layer.addAnimation(exit, forKey: "hide")
-        menu.layer.position = CGPointMake(0-menu.frame.size.width/2, self.view.center.y)
-
+        menu.layer.position = CGPointMake(0-menu.frame.size.width, self.view.center.y)
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {

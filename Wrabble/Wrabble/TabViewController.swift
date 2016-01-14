@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import AudioToolbox
 
 class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabBarControllerDelegate {
     
@@ -82,7 +83,6 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         if (item.tag == 3) {
             self.sel = true
             addView()
-//            let delay = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "addView", userInfo: nil, repeats: false)
         } else {
             self.sel = false
         }
@@ -95,12 +95,12 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
             spin.animate(120)
             let recorder = Recorder()
             url = recorder.recordWithPermission(true)
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
         } else if (longPress.state == .Ended) {
         self.selectedViewController?.view.subviews.last?.removeFromSuperview()
             let recorder = Recorder()
             recorder.stop()
             setSave()
-            
         }
     }
     
@@ -129,18 +129,18 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
     }
     
     func setSave() {
-        let test = TestViewController()
-        self.view.addSubview(test.view)
+        let test = NSBundle.mainBundle().loadNibNamed("Test", owner: self, options: nil).last as! UIView
+        self.view.addSubview(test)
         let animate = CABasicAnimation(keyPath: "position.y")
         animate.fromValue = self.view.frame.size.height
         animate.duration = 0.6
         animate.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animate.toValue = self.view.center.y
-        test.view.layer.addAnimation(animate, forKey: "incoming")
-        test.view.layer.position = CGPointMake(self.view.center.x, self.view.center.y)
-        let backButton = test.view.viewWithTag(1) as! UIButton
+        test.layer.addAnimation(animate, forKey: "incoming")
+        test.layer.position = CGPointMake(self.view.center.x, self.view.center.y)
+        let backButton = test.viewWithTag(1) as! UIButton
         backButton.addTarget(self, action: "remove", forControlEvents: .TouchUpInside)
-        let saveBn = test.view.viewWithTag(2) as! UIButton
+        let saveBn = test.viewWithTag(2) as! UIButton
         saveBn.addTarget(self, action: "saveRecord", forControlEvents: .TouchUpInside)
         self.tabBar.userInteractionEnabled = false
     }
@@ -184,6 +184,7 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         fading.removedOnCompletion = false
         test.layer.addAnimation(animate, forKey: "ciao")
         test.layer.addAnimation(fading, forKey: "alpha")
+        test.layer.position = CGPointMake(self.view.center.x, 800)
     }
     
     override func animationDidStart(anim: CAAnimation) {

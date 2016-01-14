@@ -28,14 +28,15 @@
 		FD4504021C43CC1A00671501 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503FB1C43CC1A00671501 /* TableViewCell.swift */; };
 		FD4504031C43CC1A00671501 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503FC1C43CC1A00671501 /* TableViewCell.xib */; };
 		FD4504041C43CC1A00671501 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503FD1C43CC1A00671501 /* TableViewController.swift */; };
-		FD4504051C43CC1A00671501 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503FE1C43CC1A00671501 /* TestViewController.swift */; };
-		FD4504061C43CC1A00671501 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503FF1C43CC1A00671501 /* TestViewController.xib */; };
+		FD4504061C43CC1A00671501 /* Test.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503FF1C43CC1A00671501 /* Test.xib */; };
 		FD71F8AD1C46B277004BCD67 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8AB1C46B277004BCD67 /* TabViewController.swift */; };
 		FD71F8AE1C46B277004BCD67 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8AC1C46B277004BCD67 /* TabViewController.xib */; };
 		FD71F8B61C47B46B004BCD67 /* KeepPressed.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */; };
 		FD71F8B81C47CE2F004BCD67 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8B71C47CE2F004BCD67 /* Recorder.swift */; };
 		FD71F8BA1C4806FF004BCD67 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8B91C4806FF004BCD67 /* CollectionViewController.xib */; };
 		FD71F8BE1C4822CE004BCD67 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8BD1C4822CE004BCD67 /* MenuView.xib */; };
+		FD71F8C51C485496004BCD67 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */; };
+		FD71F8C61C485496004BCD67 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */; };
 		FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA55BC71C45669300C9BE74 /* SpinLoading.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,14 +88,15 @@
 		FD4503FB1C43CC1A00671501 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FD4503FC1C43CC1A00671501 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		FD4503FD1C43CC1A00671501 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		FD4503FE1C43CC1A00671501 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		FD4503FF1C43CC1A00671501 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		FD4503FF1C43CC1A00671501 /* Test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Test.xib; sourceTree = "<group>"; };
 		FD71F8AB1C46B277004BCD67 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		FD71F8AC1C46B277004BCD67 /* TabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabViewController.xib; sourceTree = "<group>"; };
 		FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeepPressed.xib; sourceTree = "<group>"; };
 		FD71F8B71C47CE2F004BCD67 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		FD71F8B91C4806FF004BCD67 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		FD71F8BD1C4822CE004BCD67 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
+		FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		FDA55BC71C45669300C9BE74 /* SpinLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,10 +153,9 @@
 			children = (
 				1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */,
 				FD71F8AB1C46B277004BCD67 /* TabViewController.swift */,
+				FD71F8AC1C46B277004BCD67 /* TabViewController.xib */,
 				FD71F8B71C47CE2F004BCD67 /* Recorder.swift */,
 				FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */,
-				FD71F8AC1C46B277004BCD67 /* TabViewController.xib */,
-				FD4503F91C43CC1A00671501 /* FirstViewController.xib */,
 				FD4503FA1C43CC1A00671501 /* KYCircularProgress.swift */,
 				FD4503FB1C43CC1A00671501 /* TableViewCell.swift */,
 				FD4503FC1C43CC1A00671501 /* TableViewCell.xib */,
@@ -162,12 +163,14 @@
 				FD2BFBF91C44135E0036EB9B /* UserViewController.swift */,
 				FD2BFBFD1C4419B80036EB9B /* Header.xib */,
 				FDA55BC71C45669300C9BE74 /* SpinLoading.swift */,
-				FD4503FE1C43CC1A00671501 /* TestViewController.swift */,
-				1D689C601C440B390044B0B8 /* CollectionViewController.swift */,
+				FD4503FF1C43CC1A00671501 /* Test.xib */,
 				FD71F8BD1C4822CE004BCD67 /* MenuView.xib */,
+				1D689C601C440B390044B0B8 /* CollectionViewController.swift */,
 				FD71F8B91C4806FF004BCD67 /* CollectionViewController.xib */,
-				FD4503FF1C43CC1A00671501 /* TestViewController.xib */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
+				FD4503F91C43CC1A00671501 /* FirstViewController.xib */,
+				FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */,
+				FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */,
 				9C3C9FA31C400492002CDB3C /* SignupViewController.swift */,
 				9C3C9FA41C400492002CDB3C /* SignupViewController.xib */,
 				9C3C9F991C3FED47002CDB3C /* LoginViewController.swift */,
@@ -328,7 +331,7 @@
 				9C3C9FA01C3FEDEB002CDB3C /* Keys.plist in Resources */,
 				9C3C9F9E1C3FEDCD002CDB3C /* Keys.plist in Resources */,
 				9C3C9F9C1C3FED47002CDB3C /* LoginViewController.xib in Resources */,
-				FD4504061C43CC1A00671501 /* TestViewController.xib in Resources */,
+				FD4504061C43CC1A00671501 /* Test.xib in Resources */,
 				FD71F8BA1C4806FF004BCD67 /* CollectionViewController.xib in Resources */,
 				FD71F8BE1C4822CE004BCD67 /* MenuView.xib in Resources */,
 				FD71F8AE1C46B277004BCD67 /* TabViewController.xib in Resources */,
@@ -338,6 +341,7 @@
 				FD4504001C43CC1A00671501 /* FirstViewController.xib in Resources */,
 				1D766DDC1C3EC17400CFAD3D /* Assets.xcassets in Resources */,
 				FD71F8B61C47B46B004BCD67 /* KeepPressed.xib in Resources */,
+				FD71F8C61C485496004BCD67 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,8 +422,8 @@
 				FD71F8B81C47CE2F004BCD67 /* Recorder.swift in Sources */,
 				FD4504011C43CC1A00671501 /* KYCircularProgress.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
+				FD71F8C51C485496004BCD67 /* CollectionViewCell.swift in Sources */,
 				FD4504021C43CC1A00671501 /* TableViewCell.swift in Sources */,
-				FD4504051C43CC1A00671501 /* TestViewController.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,
 				FD71F8AD1C46B277004BCD67 /* TabViewController.swift in Sources */,
 				FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */,

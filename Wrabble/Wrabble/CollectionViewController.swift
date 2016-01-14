@@ -25,7 +25,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
+        collectionView.registerNib(nib, forCellWithReuseIdentifier: "Cell")
         searchBar.delegate = self
         getUsers()
         self.navigationController?.navigationBarHidden = false
@@ -88,13 +89,27 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.orangeColor()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
         let file = self.users![indexPath.row]["image"] as! PFFile
-        let image = PFImageView(frame: cell.contentView.frame)
-        image.file = file
-        image.loadInBackground()
-        cell.contentView.addSubview(image)
+        cell.image.file = file
+        cell.image.layer.cornerRadius = cell.image.frame.size.width/2
+        cell.image.loadInBackground()
+        cell.label.text = self.users![indexPath.row]["username"] as? String
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
+
