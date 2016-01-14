@@ -21,22 +21,22 @@ import Parse
     @IBOutlet var playButton: UIButton!
     @IBOutlet var statusLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
-    
     var circular : KYCircularProgress!
     var fileName : String!
-
     var meterTimer:NSTimer!
     var soundFileURL:NSURL!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         stopButton.enabled = false
         playButton.enabled = false
         setSessionPlayback()
         checkHeadphones()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+//        super.view.subviews.last?.removeFromSuperview()
     }
     
     func updateAudioMeter(timer:NSTimer) {
@@ -49,9 +49,7 @@ import Parse
         }
     }
     
-    
     @IBAction func save(sender: UIButton) {
-        
         let test = TestViewController()
         self.view.addSubview(test.view)
         let animate = CABasicAnimation(keyPath: "position.y")
@@ -71,7 +69,6 @@ import Parse
         if player != nil && player.playing {
             player.stop()
         }
-        
         if recorder == nil {
             recordButton.setTitle("Pause", forState:.Normal)
             playButton.enabled = false
@@ -79,7 +76,6 @@ import Parse
             recordWithPermission(true)
             return
         }
-        
         if recorder != nil && recorder.recording {
             recorder.pause()
             recordButton.setTitle("Continue", forState:.Normal)
@@ -113,8 +109,12 @@ import Parse
     }
     
     @IBAction func play(sender: UIButton) {
-        setSessionPlayback()
-        play()
+//        setSessionPlayback()
+//        play()
+        let circ = SpinLoading(frame: CGRectMake(0, 0, 100, 100))
+        circ.center = self.view.center
+        self.view.addSubview(circ)
+        circ.animate(120)
     }
     
     
@@ -133,7 +133,6 @@ import Parse
         fading.removedOnCompletion = false
         test.layer.addAnimation(animate, forKey: "ciao")
         test.layer.addAnimation(fading, forKey: "alpha")
-
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
@@ -270,8 +269,6 @@ import Parse
             print(error.localizedDescription)
         }
     }
-    
-    
     
     
     func checkHeadphones() {

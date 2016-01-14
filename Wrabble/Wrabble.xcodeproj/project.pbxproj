@@ -10,7 +10,6 @@
 		1D689C611C440B390044B0B8 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D689C601C440B390044B0B8 /* CollectionViewController.swift */; };
 		1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */; };
 		1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */; };
-		1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */; };
 		1D766DDC1C3EC17400CFAD3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D766DDB1C3EC17400CFAD3D /* Assets.xcassets */; };
 		1D766DDF1C3EC17400CFAD3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D766DDD1C3EC17400CFAD3D /* LaunchScreen.storyboard */; };
 		1D766DEA1C3EC17400CFAD3D /* WrabbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D766DE91C3EC17400CFAD3D /* WrabbleTests.swift */; };
@@ -32,6 +31,11 @@
 		FD4504041C43CC1A00671501 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503FD1C43CC1A00671501 /* TableViewController.swift */; };
 		FD4504051C43CC1A00671501 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4503FE1C43CC1A00671501 /* TestViewController.swift */; };
 		FD4504061C43CC1A00671501 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503FF1C43CC1A00671501 /* TestViewController.xib */; };
+		FD71F8AD1C46B277004BCD67 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8AB1C46B277004BCD67 /* TabViewController.swift */; };
+		FD71F8AE1C46B277004BCD67 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8AC1C46B277004BCD67 /* TabViewController.xib */; };
+		FD71F8B61C47B46B004BCD67 /* KeepPressed.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */; };
+		FD71F8B81C47CE2F004BCD67 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8B71C47CE2F004BCD67 /* Recorder.swift */; };
+		FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA55BC71C45669300C9BE74 /* SpinLoading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +61,6 @@
 		1D766DCF1C3EC17400CFAD3D /* Wrabble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wrabble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		1D766DDB1C3EC17400CFAD3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D766DDE1C3EC17400CFAD3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D766DE01C3EC17400CFAD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +89,11 @@
 		FD4503FD1C43CC1A00671501 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FD4503FE1C43CC1A00671501 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FD4503FF1C43CC1A00671501 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		FD71F8AB1C46B277004BCD67 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		FD71F8AC1C46B277004BCD67 /* TabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabViewController.xib; sourceTree = "<group>"; };
+		FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeepPressed.xib; sourceTree = "<group>"; };
+		FD71F8B71C47CE2F004BCD67 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		FDA55BC71C45669300C9BE74 /* SpinLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,10 @@
 			isa = PBXGroup;
 			children = (
 				1D766DD21C3EC17400CFAD3D /* AppDelegate.swift */,
+				FD71F8AB1C46B277004BCD67 /* TabViewController.swift */,
+				FD71F8B71C47CE2F004BCD67 /* Recorder.swift */,
+				FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */,
+				FD71F8AC1C46B277004BCD67 /* TabViewController.xib */,
 				FD4503F91C43CC1A00671501 /* FirstViewController.xib */,
 				FD4503FA1C43CC1A00671501 /* KYCircularProgress.swift */,
 				FD4503FB1C43CC1A00671501 /* TableViewCell.swift */,
@@ -148,11 +160,11 @@
 				FD2BFBF91C44135E0036EB9B /* UserViewController.swift */,
 				FD2BFC011C445B550036EB9B /* UserImage.swift */,
 				FD2BFBFD1C4419B80036EB9B /* Header.xib */,
+				FDA55BC71C45669300C9BE74 /* SpinLoading.swift */,
 				FD4503FE1C43CC1A00671501 /* TestViewController.swift */,
 				1D689C601C440B390044B0B8 /* CollectionViewController.swift */,
 				FD4503FF1C43CC1A00671501 /* TestViewController.xib */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
-				1D766DD61C3EC17400CFAD3D /* SecondViewController.swift */,
 				9C3C9FA31C400492002CDB3C /* SignupViewController.swift */,
 				9C3C9FA41C400492002CDB3C /* SignupViewController.xib */,
 				9C3C9F991C3FED47002CDB3C /* LoginViewController.swift */,
@@ -314,11 +326,13 @@
 				9C3C9F9E1C3FEDCD002CDB3C /* Keys.plist in Resources */,
 				9C3C9F9C1C3FED47002CDB3C /* LoginViewController.xib in Resources */,
 				FD4504061C43CC1A00671501 /* TestViewController.xib in Resources */,
+				FD71F8AE1C46B277004BCD67 /* TabViewController.xib in Resources */,
 				1D766DDF1C3EC17400CFAD3D /* LaunchScreen.storyboard in Resources */,
 				FD2BFBFE1C4419B80036EB9B /* Header.xib in Resources */,
 				FD4504031C43CC1A00671501 /* TableViewCell.xib in Resources */,
 				FD4504001C43CC1A00671501 /* FirstViewController.xib in Resources */,
 				1D766DDC1C3EC17400CFAD3D /* Assets.xcassets in Resources */,
+				FD71F8B61C47B46B004BCD67 /* KeepPressed.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,17 +406,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C3C9F9B1C3FED47002CDB3C /* LoginViewController.swift in Sources */,
-				1D766DD71C3EC17400CFAD3D /* SecondViewController.swift in Sources */,
 				9C3C9FA51C400492002CDB3C /* SignupViewController.swift in Sources */,
 				FD2BFBFB1C44135E0036EB9B /* UserViewController.swift in Sources */,
 				FD4504041C43CC1A00671501 /* TableViewController.swift in Sources */,
 				1D689C611C440B390044B0B8 /* CollectionViewController.swift in Sources */,
+				FD71F8B81C47CE2F004BCD67 /* Recorder.swift in Sources */,
 				FD4504011C43CC1A00671501 /* KYCircularProgress.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
 				FD2BFC021C445B550036EB9B /* UserImage.swift in Sources */,
 				FD4504021C43CC1A00671501 /* TableViewCell.swift in Sources */,
 				FD4504051C43CC1A00671501 /* TestViewController.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,
+				FD71F8AD1C46B277004BCD67 /* TabViewController.swift in Sources */,
+				FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
