@@ -19,10 +19,18 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     
     
     override init(style: UITableViewStyle, className: String?) {
-        super.init(style: .Grouped, className: "Wrabbles")
+        super.init(style: .Plain, className: "Wrabbles")
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
 //        tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let frame = CGRectMake(self.view.center.x - 25, self.view.frame.size.height - 100, 50, 50)
+        let butt = UIButton(frame:frame)
+        let image = UIImage(named: "spinning")
+        butt.setImage(image, forState: .Normal)
     }
     
     required init?(coder aDecoder: NSCoder) {

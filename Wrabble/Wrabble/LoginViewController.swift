@@ -72,27 +72,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
     }
     
     func startTab() {
-        let tabbar = UITabBarController()
-        let home = UserViewController()
-        let homeN = UINavigationController(rootViewController: home)
-        
-        let table = TableViewController()
-        let tableN = UINavigationController(rootViewController: table)
-        
-        let rec = FirstViewController()
-        let recN = UINavigationController(rootViewController: rec)
-        
-        let im2 = UIImage(named: "second")
-        home.tabBarItem.image = im2
-        let im3 = UIImage(named: "slide")
-        table.tabBarItem.image = im3
-        let im4 = UIImage(named: "first")
-        rec.tabBarItem.image = im4
-        
-        tabbar.viewControllers = [homeN, tableN,recN]
-        for viewC in tabbar.viewControllers! as! [UINavigationController]{
-            viewC.navigationBarHidden = true
-        }
+        let tabbar = TabViewController()
         self.navigationController?.pushViewController(tabbar, animated: true)
     }
  
