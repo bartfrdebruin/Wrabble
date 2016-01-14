@@ -66,15 +66,8 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         return self.recorder.url
     }
     
-    func stop(sender: UIButton) {
-        
+    func stop() {
         recorder?.stop()
-        let session = AVAudioSession.sharedInstance()
-        do {
-            try session.setActive(false)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
     }
 
 

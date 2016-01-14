@@ -23,6 +23,11 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         user.fetchInBackground()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBarHidden = true
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
