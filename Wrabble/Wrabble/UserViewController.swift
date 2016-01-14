@@ -9,8 +9,8 @@
 import UIKit
 import ParseUI
 import Parse
-
-class UserViewController: PFQueryTableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+import AVFoundation
+class UserViewController: TableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     var headerView : UIView!
     var user : PFUser!

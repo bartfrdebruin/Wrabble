@@ -21,16 +21,13 @@ import Parse
     @IBOutlet var playButton: UIButton!
     @IBOutlet var statusLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
-    
     var circular : KYCircularProgress!
     var fileName : String!
-
     var meterTimer:NSTimer!
     var soundFileURL:NSURL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         stopButton.enabled = false
         playButton.enabled = false
         setSessionPlayback()
@@ -39,7 +36,7 @@ import Parse
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
-        super.view.subviews.last?.removeFromSuperview()
+//        super.view.subviews.last?.removeFromSuperview()
     }
     
     func updateAudioMeter(timer:NSTimer) {
@@ -72,7 +69,6 @@ import Parse
         if player != nil && player.playing {
             player.stop()
         }
-        
         if recorder == nil {
             recordButton.setTitle("Pause", forState:.Normal)
             playButton.enabled = false
@@ -80,7 +76,6 @@ import Parse
             recordWithPermission(true)
             return
         }
-        
         if recorder != nil && recorder.recording {
             recorder.pause()
             recordButton.setTitle("Continue", forState:.Normal)
@@ -138,7 +133,6 @@ import Parse
         fading.removedOnCompletion = false
         test.layer.addAnimation(animate, forKey: "ciao")
         test.layer.addAnimation(fading, forKey: "alpha")
-
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {

@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
 
@@ -48,30 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func startTab() {
-        let tabbar = UITabBarController()
-        let home = UserViewController()
-        let homeN = UINavigationController(rootViewController: home)
-        
-        let table = TableViewController()
-        let tableN = UINavigationController(rootViewController: table)
-        
-        let rec = FirstViewController()
-        let recN = UINavigationController(rootViewController: rec)
-        
-        let im2 = UIImage(named: "second")
-        home.tabBarItem.image = im2
-        let im3 = UIImage(named: "slide")
-        table.tabBarItem.image = im3
-        let im4 = UIImage(named: "first")
-        rec.tabBarItem.image = im4
-        
-        tabbar.viewControllers = [homeN, tableN,recN]
-        for viewC in tabbar.viewControllers! as! [UINavigationController]{
-            viewC.navigationBarHidden = true
-        }
+        let tabbar = TabViewController()
         self.window!.rootViewController = tabbar
-        
     }
+    
+    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
