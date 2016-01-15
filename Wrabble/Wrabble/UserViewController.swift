@@ -106,14 +106,14 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
     }
     
     func pushFollowing() {
-        PFUser.logOutInBackgroundWithBlock { (error) -> Void in
-            if (error == nil){
-                let following = LoginViewController()
-                self.navigationController?.pushViewController(following, animated: true)
-            }
-        }
-//        let following = CollectionViewController()
-//        self.navigationController?.pushViewController(following, animated: true)
+//        PFUser.logOutInBackgroundWithBlock { (error) -> Void in
+//            if (error == nil){
+//                let following = LoginViewController()
+//                self.navigationController?.pushViewController(following, animated: true)
+//            }
+//        }
+        let following = FollowersVC()
+        self.navigationController?.pushViewController(following, animated: true)
     }
     
     func showsMenu() {

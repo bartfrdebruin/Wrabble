@@ -11,7 +11,7 @@ import Parse
 import AVFoundation
 
 
-class LoginViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
+class LoginViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet var signupButton: UIButton!
     @IBOutlet var emailLogin: UITextField!
@@ -61,8 +61,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
                 let blurView = UIVisualEffectView(effect: blurEffect)
                 // 3
                 blurView.frame = self.view.bounds
-                // sharp dismiss view
-//                blurView.contentView.addSubview(self.oops)
+                
                 self.view.addSubview(blurView)
                 self.view.addSubview(self.oops)
                 self.view.addSubview(self.closeButton)
@@ -74,13 +73,31 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
     func startTab() {
         let tabbar = TabViewController()
         self.navigationController?.pushViewController(tabbar, animated: true)
+    
     }
  
     @IBAction func signup(sender: UIButton) {
         
-        let lc = SignupViewController(nibName: "SignupViewController", bundle: nil)
-        
-        self.navigationController!.pushViewController (lc, animated: false)
+       let lc = SignupViewController()
+//        let animate = CABasicAnimation(keyPath: "position.y")
+//        animate.toValue = self.view.center.y
+//        animate.fromValue = 600
+//        lc.view.layer.addAnimation(animate, forKey: "")
+//        let fading = CABasicAnimation(keyPath: "opacity")
+//        fading.duration = 0.4
+//        fading.fromValue = 1
+//        fading.toValue = 0
+//        fading.fillMode = kCAFillModeForwards
+//        fading.removedOnCompletion = false
+//        lc.view.layer.addAnimation(fading, forKey: "alpha")
+        let spring = CASpringAnimation (keyPath: "position.y")
+        spring.damping = 0.9
+        spring.fromValue = 16
+        spring.toValue = self.view.center.y
+        lc.view.layer.addAnimation(spring, forKey: "spring")
+        self.view.addSubview(lc.view)
+      
+
     }
 
    func textFieldShouldReturn(textField: UITextField) -> Bool  {
@@ -88,11 +105,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
      password.resignFirstResponder()
         
      return true
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }

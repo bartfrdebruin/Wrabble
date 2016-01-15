@@ -21,6 +21,7 @@
 		9C3C9FA01C3FEDEB002CDB3C /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C3C9F9F1C3FEDEB002CDB3C /* Keys.plist */; };
 		9C3C9FA51C400492002CDB3C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C9FA31C400492002CDB3C /* SignupViewController.swift */; };
 		9C3C9FA61C400492002CDB3C /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3C9FA41C400492002CDB3C /* SignupViewController.xib */; };
+		9C5AEAFE1C493130006D3A9F /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5AEAFD1C493130006D3A9F /* FollowersVC.swift */; };
 		FD2BFBFB1C44135E0036EB9B /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2BFBF91C44135E0036EB9B /* UserViewController.swift */; };
 		FD2BFBFE1C4419B80036EB9B /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD2BFBFD1C4419B80036EB9B /* Header.xib */; };
 		FD4504001C43CC1A00671501 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503F91C43CC1A00671501 /* FirstViewController.xib */; };
@@ -33,7 +34,6 @@
 		FD71F8AE1C46B277004BCD67 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8AC1C46B277004BCD67 /* TabViewController.xib */; };
 		FD71F8B61C47B46B004BCD67 /* KeepPressed.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */; };
 		FD71F8B81C47CE2F004BCD67 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8B71C47CE2F004BCD67 /* Recorder.swift */; };
-		FD71F8BA1C4806FF004BCD67 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8B91C4806FF004BCD67 /* CollectionViewController.xib */; };
 		FD71F8BE1C4822CE004BCD67 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8BD1C4822CE004BCD67 /* MenuView.xib */; };
 		FD71F8C51C485496004BCD67 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */; };
 		FD71F8C61C485496004BCD67 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */; };
@@ -80,6 +80,7 @@
 		9C3C9F9F1C3FEDEB002CDB3C /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		9C3C9FA31C400492002CDB3C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		9C3C9FA41C400492002CDB3C /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		9C5AEAFD1C493130006D3A9F /* FollowersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wrabble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BFBF91C44135E0036EB9B /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		FD2BFBFD1C4419B80036EB9B /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		FD71F8AC1C46B277004BCD67 /* TabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabViewController.xib; sourceTree = "<group>"; };
 		FD71F8B51C47B46B004BCD67 /* KeepPressed.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeepPressed.xib; sourceTree = "<group>"; };
 		FD71F8B71C47CE2F004BCD67 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
-		FD71F8B91C4806FF004BCD67 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		FD71F8BD1C4822CE004BCD67 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 				FD4503FF1C43CC1A00671501 /* Test.xib */,
 				FD71F8BD1C4822CE004BCD67 /* MenuView.xib */,
 				1D689C601C440B390044B0B8 /* CollectionViewController.swift */,
-				FD71F8B91C4806FF004BCD67 /* CollectionViewController.xib */,
+				9C5AEAFD1C493130006D3A9F /* FollowersVC.swift */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
 				FD4503F91C43CC1A00671501 /* FirstViewController.xib */,
 				FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */,
@@ -332,7 +332,6 @@
 				9C3C9F9E1C3FEDCD002CDB3C /* Keys.plist in Resources */,
 				9C3C9F9C1C3FED47002CDB3C /* LoginViewController.xib in Resources */,
 				FD4504061C43CC1A00671501 /* Test.xib in Resources */,
-				FD71F8BA1C4806FF004BCD67 /* CollectionViewController.xib in Resources */,
 				FD71F8BE1C4822CE004BCD67 /* MenuView.xib in Resources */,
 				FD71F8AE1C46B277004BCD67 /* TabViewController.xib in Resources */,
 				1D766DDF1C3EC17400CFAD3D /* LaunchScreen.storyboard in Resources */,
@@ -416,6 +415,7 @@
 			files = (
 				9C3C9F9B1C3FED47002CDB3C /* LoginViewController.swift in Sources */,
 				9C3C9FA51C400492002CDB3C /* SignupViewController.swift in Sources */,
+				9C5AEAFE1C493130006D3A9F /* FollowersVC.swift in Sources */,
 				FD2BFBFB1C44135E0036EB9B /* UserViewController.swift in Sources */,
 				FD4504041C43CC1A00671501 /* TableViewController.swift in Sources */,
 				1D689C611C440B390044B0B8 /* CollectionViewController.swift in Sources */,
