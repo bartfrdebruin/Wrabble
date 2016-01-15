@@ -16,8 +16,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var searchBar: UISearchBar!
     let searchController = UISearchController(searchResultsController: nil)
     var searchBarActive:Bool = false
-
-
     var users : Array<PFObject>?
     var filtered : Array<PFObject>?
     
@@ -88,11 +86,11 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
         let file = self.users![indexPath.row]["image"] as! PFFile
         cell.image.file = file
         cell.image.layer.cornerRadius = cell.image.frame.size.width/2
+        cell.image.clipsToBounds = true
         cell.image.loadInBackground()
         cell.label.text = self.users![indexPath.row]["username"] as? String
         return cell
@@ -101,14 +99,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 

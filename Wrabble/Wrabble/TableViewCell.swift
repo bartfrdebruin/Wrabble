@@ -31,7 +31,6 @@ class TableViewCell: PFTableViewCell, AVAudioPlayerDelegate {
         slider.setThumbImage(image, forState:.Selected)
 
     }
-    
 
     
 }
