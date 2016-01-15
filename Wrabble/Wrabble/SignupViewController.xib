@@ -19,63 +19,122 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.60000002384185791" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zif-3h-1h5">
-                    <rect key="frame" x="67" y="253" width="240" height="218"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zif-3h-1h5">
+                    <rect key="frame" x="74" y="231" width="227" height="206"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DGK-vm-LD8">
+                            <rect key="frame" x="24" y="118" width="178" height="30"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MvC-2m-dJ4">
+                            <rect key="frame" x="24" y="86" width="179" height="30"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ekM-jL-BKN">
+                            <rect key="frame" x="24" y="54" width="179" height="30"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfr-Va-0Zj" userLabel="Signin">
+                            <rect key="frame" x="43" y="159" width="65" height="30"/>
+                            <animations/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
+                            </accessibility>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="65" id="EZg-oE-B4G"/>
+                                <constraint firstAttribute="height" constant="30" id="WDb-34-KJL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="Sign in">
+                                <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="4"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                    <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="signUp:" destination="-1" eventType="touchUpInside" id="nRc-SF-3IH"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign-up to Wrabble" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idE-gh-QoF">
+                            <rect key="frame" x="38" y="20" width="151" height="21"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="highlightedColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27V-XQ-2Sl">
+                            <rect key="frame" x="116" y="159" width="65" height="30"/>
+                            <animations/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
+                            </accessibility>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="65" id="hPU-MR-ByB"/>
+                                <constraint firstAttribute="height" constant="30" id="pfg-W2-87p"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="Sign-up">
+                                <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="4"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                    <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="signUp:" destination="-1" eventType="touchUpInside" id="tdX-EM-aPc"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ekM-jL-BKN" firstAttribute="leading" secondItem="zif-3h-1h5" secondAttribute="leading" constant="24" id="1us-RM-uXp"/>
+                        <constraint firstItem="idE-gh-QoF" firstAttribute="top" secondItem="zif-3h-1h5" secondAttribute="top" constant="20" id="3N6-Pc-8Fe"/>
+                        <constraint firstAttribute="height" constant="206" id="3zR-dp-UNc"/>
+                        <constraint firstItem="bfr-Va-0Zj" firstAttribute="top" secondItem="DGK-vm-LD8" secondAttribute="bottom" constant="11" id="63l-e8-HJn"/>
+                        <constraint firstAttribute="bottom" secondItem="27V-XQ-2Sl" secondAttribute="bottom" constant="17" id="6In-T7-U46"/>
+                        <constraint firstItem="MvC-2m-dJ4" firstAttribute="top" secondItem="ekM-jL-BKN" secondAttribute="bottom" constant="2" id="JKD-1h-Eji"/>
+                        <constraint firstItem="ekM-jL-BKN" firstAttribute="top" secondItem="idE-gh-QoF" secondAttribute="bottom" constant="13" id="N8C-kw-cOA"/>
+                        <constraint firstItem="27V-XQ-2Sl" firstAttribute="leading" secondItem="bfr-Va-0Zj" secondAttribute="trailing" constant="8" id="Off-aP-8MO"/>
+                        <constraint firstItem="bfr-Va-0Zj" firstAttribute="leading" secondItem="zif-3h-1h5" secondAttribute="leading" constant="43" id="Ph5-0B-bK1"/>
+                        <constraint firstAttribute="trailing" secondItem="27V-XQ-2Sl" secondAttribute="trailing" constant="46" id="Qaa-Kt-Lx7"/>
+                        <constraint firstItem="DGK-vm-LD8" firstAttribute="leading" secondItem="MvC-2m-dJ4" secondAttribute="leading" id="ROe-ct-BNY"/>
+                        <constraint firstItem="MvC-2m-dJ4" firstAttribute="leading" secondItem="zif-3h-1h5" secondAttribute="leading" constant="24" id="Ue8-3k-Yr3"/>
+                        <constraint firstAttribute="trailing" secondItem="ekM-jL-BKN" secondAttribute="trailing" constant="24" id="Yix-lJ-DBz"/>
+                        <constraint firstAttribute="bottom" secondItem="bfr-Va-0Zj" secondAttribute="bottom" constant="17" id="df7-by-8vw"/>
+                        <constraint firstAttribute="trailing" secondItem="MvC-2m-dJ4" secondAttribute="trailing" constant="24" id="dxB-sp-gqC"/>
+                        <constraint firstItem="27V-XQ-2Sl" firstAttribute="top" secondItem="DGK-vm-LD8" secondAttribute="bottom" constant="11" id="mD4-AQ-eJi"/>
+                        <constraint firstAttribute="trailing" secondItem="idE-gh-QoF" secondAttribute="trailing" constant="38" id="mId-5z-KwZ"/>
+                        <constraint firstItem="DGK-vm-LD8" firstAttribute="top" secondItem="MvC-2m-dJ4" secondAttribute="bottom" constant="2" id="mrc-at-7cY"/>
+                        <constraint firstAttribute="width" constant="227" id="q7Q-Po-hn9"/>
+                        <constraint firstItem="DGK-vm-LD8" firstAttribute="centerX" secondItem="MvC-2m-dJ4" secondAttribute="centerX" id="rtQ-wf-Xb4"/>
+                        <constraint firstItem="27V-XQ-2Sl" firstAttribute="leading" secondItem="bfr-Va-0Zj" secondAttribute="trailing" constant="8" id="tls-QR-hd5"/>
+                        <constraint firstItem="idE-gh-QoF" firstAttribute="leading" secondItem="zif-3h-1h5" secondAttribute="leading" constant="38" id="vhM-Hr-EGb"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="5"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign-up to Wrabble" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idE-gh-QoF">
-                    <rect key="frame" x="104" y="272" width="167" height="27"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27V-XQ-2Sl">
-                    <rect key="frame" x="155" y="421" width="65" height="30"/>
-                    <animations/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <accessibility key="accessibilityConfiguration">
-                        <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
-                    </accessibility>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="Sign-up">
-                        <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="4"/>
-                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="signUp:" destination="-1" eventType="touchUpInside" id="tdX-EM-aPc"/>
-                    </connections>
-                </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ekM-jL-BKN">
-                    <rect key="frame" x="90" y="309" width="195" height="30"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MvC-2m-dJ4">
-                    <rect key="frame" x="90" y="344" width="195" height="30"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DGK-vm-LD8">
-                    <rect key="frame" x="90" y="379" width="195" height="30"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="zif-3h-1h5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Hox-Jm-Wu6"/>
+                <constraint firstItem="zif-3h-1h5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U8U-qz-ZVQ"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>

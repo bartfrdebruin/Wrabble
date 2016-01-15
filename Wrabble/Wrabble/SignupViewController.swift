@@ -15,7 +15,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var password: UITextField!
     @IBOutlet var email: UITextField!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,18 +29,19 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         email.textColor = UIColor.blackColor()
         password.placeholder = "Password..."
         password.textColor = UIColor.blackColor()
-
-
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setToolbarHidden(true, animated: true)
-
-        UIView.animateWithDuration(3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 8, options: .AllowUserInteraction, animations: { () -> Void in
+        
+//        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 8, options: .AllowUserInteraction, animations: { () -> Void in
             self.littleView.frame = self.view.frame
             
-            }, completion: nil)    }
+//            }, completion: nil)   
+    }
     
     @IBAction func signUp(sender: AnyObject) {
         [self .mySignUp()]
@@ -51,7 +52,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         user.username = email.text
         user.password = password.text
         user.email = email.text
-    
+        
         
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
@@ -71,12 +72,5 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-
 }
