@@ -120,23 +120,30 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
      
         menu = NSBundle.mainBundle().loadNibNamed("MenuView", owner: self, options: nil).last as! UIView
         menu.frame = CGRectMake(0, 0, menu.frame.size.width, self.view.frame.size.height)
-        self.view.addSubview(menu)
+        headerView.addSubview(menu)
         self.tableView.scrollEnabled = false
         self.tabBarController?.tabBar.userInteractionEnabled = false
         menu.userInteractionEnabled = true
         let anim = CABasicAnimation(keyPath: "position.x")
         anim.fromValue = 0-menu.frame.size.width
-        anim.toValue = menu.frame.size.width/2
+        anim.toValue =  menu.frame.size.width/2
         anim.duration = 0.6
         anim.removedOnCompletion = true
         anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         menu.layer.addAnimation(anim, forKey: "show")
         menu.layer.position = CGPointMake(menu.frame.size.width/2, self.view.center.y)
         let back = menu.viewWithTag(1) as! UIButton
-        back.addTarget(self, action: "closeMenu", forControlEvents: .TouchUpInside)
+        back.addTarget(self, action: "closeMenu:", forControlEvents: .TouchUpInside)
+        let rotate = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotate.fromValue = 0
+        rotate.toValue = (M_PI*2)
+        rotate.duration = 0.6
+        rotate.repeatCount = 1
+        rotate.removedOnCompletion = true
+        back.layer.addAnimation(rotate, forKey: "rotation")
     }
     
-    func closeMenu() {
+    func closeMenu(sender : UIButton) {
         self.tableView.scrollEnabled = true
         self.tabBarController?.tabBar.userInteractionEnabled = true
         let exit = CABasicAnimation(keyPath: "position.x")
@@ -147,6 +154,13 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         exit.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         menu.layer.addAnimation(exit, forKey: "hide")
         menu.layer.position = CGPointMake(0-menu.frame.size.width, self.view.center.y)
+        let rotate = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotate.fromValue = 0
+        rotate.toValue = -(M_PI*2)
+        rotate.duration = 0.6
+        rotate.repeatCount = 1
+        rotate.removedOnCompletion = true
+        sender.layer.addAnimation(rotate, forKey: "rotation")
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
