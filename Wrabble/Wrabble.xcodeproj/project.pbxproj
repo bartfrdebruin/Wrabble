@@ -37,6 +37,7 @@
 		FD71F8BE1C4822CE004BCD67 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8BD1C4822CE004BCD67 /* MenuView.xib */; };
 		FD71F8C51C485496004BCD67 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */; };
 		FD71F8C61C485496004BCD67 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */; };
+		FD71F8C81C494B9A004BCD67 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8C71C494B9A004BCD67 /* PeopleViewController.swift */; };
 		FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA55BC71C45669300C9BE74 /* SpinLoading.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		FD71F8BD1C4822CE004BCD67 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		FD71F8C71C494B9A004BCD67 /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		FDA55BC71C45669300C9BE74 /* SpinLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 				FD4503FB1C43CC1A00671501 /* TableViewCell.swift */,
 				FD4503FC1C43CC1A00671501 /* TableViewCell.xib */,
 				FD4503FD1C43CC1A00671501 /* TableViewController.swift */,
+				FD71F8C71C494B9A004BCD67 /* PeopleViewController.swift */,
 				FD2BFBF91C44135E0036EB9B /* UserViewController.swift */,
 				FD2BFBFD1C4419B80036EB9B /* Header.xib */,
 				FDA55BC71C45669300C9BE74 /* SpinLoading.swift */,
@@ -415,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C3C9F9B1C3FED47002CDB3C /* LoginViewController.swift in Sources */,
+				FD71F8C81C494B9A004BCD67 /* PeopleViewController.swift in Sources */,
 				9C3C9FA51C400492002CDB3C /* SignupViewController.swift in Sources */,
 				FD2BFBFB1C44135E0036EB9B /* UserViewController.swift in Sources */,
 				FD4504041C43CC1A00671501 /* TableViewController.swift in Sources */,

@@ -27,6 +27,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         collectionView.registerNib(nib, forCellWithReuseIdentifier: "Cell")
         searchBar.delegate = self
         getUsers()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         self.navigationController?.navigationBarHidden = false
     }
     
@@ -97,7 +101,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        let userPeople = self.users![indexPath.row]
+        let people = PeopleViewController()
+        people.userPeople = userPeople
+        self.navigationController?.pushViewController(people, animated: true)
     }
     
 }

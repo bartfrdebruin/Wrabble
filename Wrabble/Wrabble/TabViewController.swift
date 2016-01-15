@@ -161,6 +161,11 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         object.saveInBackgroundWithBlock { (succeed, Error) -> Void in
             if (succeed == true) {
                 self.remove()
+//                let nav = self.selectedViewController as! UINavigationController
+//                if ((nav.viewControllers[0].isKindOfClass(TableViewController)) == true){
+//                    print("true")
+//                    let tab = nav.viewControllers[0] as! TableViewController
+//                }
             } else {
                 print (Error!.userInfo["error"])
             }
