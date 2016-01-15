@@ -91,9 +91,9 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
 //        fading.removedOnCompletion = false
 //        lc.view.layer.addAnimation(fading, forKey: "alpha")
         let spring = CASpringAnimation (keyPath: "position.y")
-        spring.damping = 7
-        spring.fromValue = 200
-        spring.toValue = 3
+        spring.damping = 0.9
+        spring.fromValue = 16
+        spring.toValue = self.view.center.y
         lc.view.layer.addAnimation(spring, forKey: "spring")
         self.view.addSubview(lc.view)
       
