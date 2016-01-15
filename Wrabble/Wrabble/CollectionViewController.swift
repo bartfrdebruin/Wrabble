@@ -50,8 +50,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.characters.count > 0 {
             self.filterContentForSearchText(searchText)
+            self.collectionView.reloadData()
             searchBarActive = true
-            self.collectionView?.reloadData()
         }else{
             searchBarActive = false
             self.collectionView?.reloadData()

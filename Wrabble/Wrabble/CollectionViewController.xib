@@ -24,9 +24,9 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="FPY-e8-O1j">
                     <rect key="frame" x="0.0" y="108" width="320" height="372"/>
                     <color key="backgroundColor" red="1" green="0.46852117160000001" blue="0.45428671970000001" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="4RT-jK-7mI">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="7" minimumInteritemSpacing="2" id="4RT-jK-7mI">
                         <size key="itemSize" width="90" height="100"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="headerReferenceSize" width="0.0" height="8"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
