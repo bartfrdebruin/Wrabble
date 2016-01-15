@@ -25,7 +25,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNb-3r-k9Q">
                             <rect key="frame" x="0.0" y="0.0" width="5" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhh-fb-KUH">
@@ -41,21 +41,27 @@
                 <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-HQ-eEW">
                     <rect key="frame" x="139" y="68" width="42" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-vc-96q">
                     <rect key="frame" x="198" y="30" width="74" height="30"/>
                     <state key="normal" title="ChangePic"/>
                 </button>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkL-8A-gZf">
+                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                    <state key="normal" title="\\\"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="eQH-vc-96q" firstAttribute="leading" secondItem="HNR-DE-Mbc" secondAttribute="trailing" constant="8" id="6V3-w6-kuQ"/>
                 <constraint firstItem="eQH-vc-96q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="6mM-4k-TtU"/>
+                <constraint firstItem="LkL-8A-gZf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BFk-xF-Zia"/>
                 <constraint firstItem="HNR-DE-Mbc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Koy-WI-5El"/>
                 <constraint firstItem="lG8-Kn-WsH" firstAttribute="top" secondItem="eQH-vc-96q" secondAttribute="bottom" constant="32" id="LGY-oa-ndD"/>
                 <constraint firstItem="lG8-Kn-WsH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="OOs-6x-wcD"/>
+                <constraint firstItem="LkL-8A-gZf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OTS-oZ-5MR"/>
                 <constraint firstItem="lG8-Kn-WsH" firstAttribute="top" secondItem="fyf-HQ-eEW" secondAttribute="bottom" constant="4" id="QiL-Bz-0LO"/>
                 <constraint firstItem="fyf-HQ-eEW" firstAttribute="top" secondItem="HNR-DE-Mbc" secondAttribute="bottom" constant="8" id="Vgz-oQ-UvP"/>
                 <constraint firstAttribute="trailing" secondItem="lG8-Kn-WsH" secondAttribute="trailing" constant="8" id="WYO-yn-YOs"/>
