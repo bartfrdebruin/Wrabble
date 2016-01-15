@@ -110,11 +110,9 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     func playing() {
         
         if (cellSelected.detailView.hidden == true) {
-            print("true")
         } else {
             cellSelected.detailView.hidden = true
             cellSelected.playingView.hidden = false
-            print("false")
         }
         cellSelected.play.setTitle("||", forState: .Normal)
         cellSelected.play.removeTarget(self, action: "playRecord:", forControlEvents: .TouchUpInside)

@@ -75,5 +75,34 @@ class PeopleViewController: UserViewController {
     func back() {
         self.navigationController?.popViewControllerAnimated(true)
     }
-
+    
+    override func pushFollowers() {
+        let follower = CollectionViewController()
+        let array = userPeople.objectForKey("followers") as? Array<String>
+        let query = PFQuery.queryForUser()
+        query.whereKey("objectId", containedIn: array!)
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+        follower.users = objects
+        self.navigationController?.pushViewController(follower, animated: true)
+        }
+    }
+    
+    override func pushFollowing() {
+//        let spin = SpinLoading(frame: CGRectMake(self.view.center.x-50, self.view.center.y-50, 100, 100))
+//        self.view.addSubview(spin)
+//        spin.animate(150)
+        let following = FollowersVC()
+        let array = userPeople.objectForKey("following") as? Array<String>
+        let query = PFQuery.queryForUser()
+        query.whereKey("objectId", containedIn: array!)
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            following.users = objects
+            self.navigationController?.pushViewController(following, animated: true)
+        }
+    }
+    
+    
+    
+    
+    
 }

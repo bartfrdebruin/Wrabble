@@ -97,7 +97,6 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
             url = recorder.recordWithPermission(true)
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
         } else if (longPress.state == .Ended) {
-        self.selectedViewController?.view.subviews.last?.removeFromSuperview()
             let recorder = Recorder()
             recorder.stop()
             setSave()
