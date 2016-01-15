@@ -17,13 +17,11 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     var pauseTime : NSTimeInterval!
     var tagPlaying : Int?
     var cellSelected : TableViewCell!
+    var tagPlay : Int?
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: .Plain, className: "Wrabbles")
-        let nib = UINib(nibName: "TableViewCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+ 
 //        tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
     }
     
@@ -32,6 +30,10 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         let frame = CGRectMake(self.view.center.x - 25, self.view.frame.size.height - 100, 50, 50)
         let butt = UIButton(frame:frame)
         let image = UIImage(named: "spinning")
+        let nib = UINib(nibName: "TableViewCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         butt.setImage(image, forState: .Normal)
     }
     
@@ -50,17 +52,23 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
-        cell.titleLabel?.text = object!["name"] as? String
-        cell.userLabel?.text = object!["username"] as? String
-        cell.play.tag = indexPath.row
-        cell.play.addTarget(self, action: "playRecord:", forControlEvents: .TouchUpInside)
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? TableViewCell
+        if indexPath.row == tagPlay{
+            cell?.playingView.hidden = false
+            cell?.detailView.hidden = true
+        }
+        cell!.playingView.hidden = true
+        cell!.titleLabel?.text = object!["name"] as? String
+        cell!.userLabel?.text = object!["username"] as? String
+        cell!.play.tag = indexPath.row
+        cell!.play.addTarget(self, action: "playRecord:", forControlEvents: .TouchUpInside)
+        cell!.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
-
     
     func playRecord(sender : UIButton) {
+
+        tagPlay = sender.tag
         setSessionPlayback()
         if (player != nil && player.playing == true){
             self.afterPlay(cellSelected)
@@ -86,8 +94,9 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
                     if (self.cellSelected != nil){
                     self.afterPlay(self.cellSelected)
                     }
-                    self.player.play()
                     self.cellSelected = sender.superview?.superview as! TableViewCell
+                    
+                    self.player.play()
                     print("ANOTHER FILE")
                 }
                     self.playing()
@@ -101,7 +110,6 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     func playing() {
         
         if (cellSelected.detailView.hidden == true) {
-            
         } else {
             cellSelected.detailView.hidden = true
             cellSelected.playingView.hidden = false
@@ -119,16 +127,14 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     }
     
     func setSlider() {
-        for cell in tableView.visibleCells as! [TableViewCell] {
-            cell.slider.maximumValue = Float(player.duration)
-            cell.slider.setValue(Float(player.currentTime), animated: true)
-        }
+            cellSelected.slider.maximumValue = Float(player.duration)
+            cellSelected.slider.setValue(Float(player.currentTime), animated: true)
     }
     
     func slide() {
         player.currentTime = Double(cellSelected.slider.value)
     }
-
+    
     func setSessionPlayback() {
         let session:AVAudioSession = AVAudioSession.sharedInstance()
         
@@ -137,7 +143,6 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         } catch let error as NSError {
             print(error.localizedDescription)
             print("setCategory")
-
         }
         do {
             try session.setActive(true)
@@ -158,6 +163,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         afterPlay(cellSelected)
+        tagPlay = nil
     }
 
     func afterPlay (cell : TableViewCell) {

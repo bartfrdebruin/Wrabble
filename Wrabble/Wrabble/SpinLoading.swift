@@ -11,7 +11,7 @@ import UIKit
 class SpinLoading: UIImageView {
 
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame : frame)
         self.image = UIImage(named: "spinning")
     }
 
@@ -26,7 +26,13 @@ class SpinLoading: UIImageView {
         rotate.toValue = (M_PI*2)
         rotate.duration = 50
         rotate.speed = speed
-        rotate.repeatCount = 5
+        rotate.repeatCount = Float.infinity
+        rotate.delegate = self
+        rotate.removedOnCompletion = true
         self.layer.addAnimation(rotate, forKey: "rotation")
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        self.removeFromSuperview()
     }
 }

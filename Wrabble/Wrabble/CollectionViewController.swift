@@ -14,31 +14,29 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     var collectionView: UICollectionView!
     var searchBar: UISearchBar!
-    //let searchController =    (searchResultsController: nil)
-    
     var users : Array<PFObject>?
     var emptyArray : Array<PFObject>?
     var searchBarActive:Bool = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = UIView(frame: UIScreen.mainScreen().bounds)
 
-        // Do any additional setup after loading the view, typically from a nib.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 90, height: 120)
         
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout:layout)
+        collectionView = UICollectionView(frame: CGRectMake(0,60,self.view.frame.size.width,view.frame.size.height - 50), collectionViewLayout:layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        searchBar = UISearchBar(frame: CGRectMake(0,100,self.view.frame.size.width, 50))
+        searchBar = UISearchBar(frame: CGRectMake(0,64 ,self.view.frame.size.width, 50))
         searchBar.delegate = self
         let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
         collectionView.registerNib(nib, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = UIColor.whiteColor()
         getUsers()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         self.navigationController?.navigationBarHidden = false
         self.view.addSubview(collectionView)
         self.view.addSubview(searchBar)
@@ -46,10 +44,17 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func getUsers() {
-        let query = PFUser.query()
-        query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+        if (users != nil){
+            
+        } else {
+        let user = PFUser.currentUser()
+        let array = user!["followers"] as? Array<String>
+        let query = PFQuery.queryForUser()
+        query.whereKey("objectId", containedIn: array!)
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             self.users = objects
             self.collectionView.reloadData()
+        }
         }
     }
     
@@ -134,10 +139,11 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        let userPeople = self.users![indexPath.row]
+        let people = PeopleViewController()
+        people.userPeople = userPeople
+        self.navigationController?.pushViewController(people, animated: true)
     }
-    
-    
 }
 
 

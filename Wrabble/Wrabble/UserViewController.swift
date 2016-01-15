@@ -18,15 +18,16 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: .Plain, className: "Wrabbles")
-        let nib = UINib(nibName: "TableViewCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
-        user = PFUser.currentUser()
-        user.fetchInBackground()
+  
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBarHidden = true
+        let nib = UINib(nibName: "TableViewCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        user = PFUser.currentUser()
+        user.fetchInBackground()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -80,8 +81,12 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         let wrabbles = headerView.viewWithTag(1) as! UILabel
         wrabbles.text = "\(objects!.count) Wrabbles"
         let followers = headerView.viewWithTag(2) as! UIButton
+        let followersArray = user["followers"] as! Array<String>
+        followers.setTitle("\(followersArray.count) Followers", forState: .Normal)
         followers.addTarget(self, action: "pushFollowers", forControlEvents: .TouchUpInside)
         let following = headerView.viewWithTag(3) as! UIButton
+        let followingArray = user["followers"] as! Array<String>
+        following.setTitle("\(followingArray.count) Following", forState: .Normal)
         following.addTarget(self, action: "pushFollowing", forControlEvents: .TouchUpInside)
         let changePic = headerView.viewWithTag(4) as! UIButton
         let menu = headerView.viewWithTag(7) as! UIButton
