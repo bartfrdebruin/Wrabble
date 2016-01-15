@@ -50,17 +50,17 @@ import Parse
     }
     
     @IBAction func save(sender: UIButton) {
-        let test = TestViewController()
-        self.view.addSubview(test.view)
+        let test = NSBundle.mainBundle().loadNibNamed("Test", owner: self, options: nil).last as! UIView
+        self.view.addSubview(test)
         let animate = CABasicAnimation(keyPath: "position.y")
         animate.fromValue = 800
         animate.toValue = self.view.center.y
-        test.view.layer.addAnimation(animate, forKey: "ciao")
-        let backButton = test.view.viewWithTag(1) as! UIButton
+        test.layer.addAnimation(animate, forKey: "ciao")
+        let backButton = test.viewWithTag(1) as! UIButton
         backButton.addTarget(self, action: "remove", forControlEvents: .TouchUpInside)
-        let saveBn = test.view.viewWithTag(2) as! UIButton
+        let saveBn = test.viewWithTag(2) as! UIButton
         saveBn.addTarget(self, action: "saveRecord", forControlEvents: .TouchUpInside)
-        let field = test.view.viewWithTag(3) as! UITextField
+        let field = test.viewWithTag(3) as! UITextField
         field.placeholder = fileName
     }
     

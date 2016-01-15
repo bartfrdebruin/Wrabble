@@ -7,65 +7,109 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
-class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
-    // Properties.
-    var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    let searchController = UISearchController(searchResultsController: nil)
+    var searchBarActive:Bool = false
 
-    // View did load.
+
+    var users : Array<PFObject>?
+    var filtered : Array<PFObject>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Screensize. 
-        let bounds = UIScreen.mainScreen().bounds
-        let width = bounds.size.width
-//        let height = bounds.size.height
-
-        let textFieldFrame = CGRectMake(10, 20, width - 20, 40)
-        
-        // Searchfield. 
-        let searchField = UITextField(frame: textFieldFrame)
-        searchField.backgroundColor = UIColor.whiteColor()
-        searchField.borderStyle = .RoundedRect
-        
-        
-        // Setting up the collectionView. 
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 90, height: 120)
-        
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView.backgroundColor = UIColor.purpleColor()
-        
-        // Setting up the view.
- 
-        
-        self.view.addSubview(collectionView)
-        self.view.addSubview(searchField)
-
-        
-        
-        
+        let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
+        collectionView.registerNib(nib, forCellWithReuseIdentifier: "Cell")
+        searchBar.delegate = self
+        getUsers()
+        self.navigationController?.navigationBarHidden = false
     }
     
+    func getUsers() {
+        let query = PFUser.query()
+        query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            self.users = objects
+            self.collectionView.reloadData()
+        }
+    }
     
+    func filterContentForSearchText(searchText:String){
+        self.filtered = self.users?.filter({ (ob:PFObject) -> Bool in
+            let us = ob["username"]
+            return us.containsString(searchText)
+        })
+    }
     
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.characters.count > 0 {
+            self.filterContentForSearchText(searchText)
+            self.collectionView.reloadData()
+            searchBarActive = true
+        }else{
+            searchBarActive = false
+            self.collectionView?.reloadData()
+        }
+    }
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchBarActive = true
+        self.view.endEditing(true)
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchBarActive = false
+        self.searchBar!.setShowsCancelButton(false, animated: false)
+    }
+    func cancelSearching(){
+        self.searchBarActive = false
+        self.searchBar!.resignFirstResponder()
+        self.searchBar!.text = ""
+    }
     
     
     // Collection View.
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 14
+        if self.searchBarActive {
+            return self.filtered!.count;
+        } else {
+            if users == nil {
+                return 0
+            } else {
+                return self.users!.count
+            }
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.orangeColor()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
+        let file = self.users![indexPath.row]["image"] as! PFFile
+        cell.image.file = file
+        cell.image.layer.cornerRadius = cell.image.frame.size.width/2
+        cell.image.loadInBackground()
+        cell.label.text = self.users![indexPath.row]["username"] as? String
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
+

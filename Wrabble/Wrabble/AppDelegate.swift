@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         // Parse Initialization.
         Parse.setApplicationId(applicationId, clientKey: clientKey)
-        
+        self.window?.backgroundColor = UIColor.whiteColor()
         
         
         if (PFUser.currentUser() != nil) {

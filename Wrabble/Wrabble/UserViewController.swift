@@ -14,6 +14,7 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
 
     var headerView : UIView!
     var user : PFUser!
+    var menu : UIView!
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: .Plain, className: "Wrabbles")
@@ -21,6 +22,11 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         user = PFUser.currentUser()
         user.fetchInBackground()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBarHidden = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,6 +84,9 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         let following = headerView.viewWithTag(3) as! UIButton
         following.addTarget(self, action: "pushFollowing", forControlEvents: .TouchUpInside)
         let changePic = headerView.viewWithTag(4) as! UIButton
+        let menu = headerView.viewWithTag(7) as! UIButton
+        menu.addTarget(self, action: "showsMenu", forControlEvents: .TouchUpInside)
+        menu.userInteractionEnabled = true
         changePic.addTarget(self, action: "changePic", forControlEvents: .TouchUpInside)
         let userPic = headerView.viewWithTag(5) as! PFImageView
         let file = self.user["image"] as? PFFile
@@ -105,6 +114,43 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         }
 //        let following = CollectionViewController()
 //        self.navigationController?.pushViewController(following, animated: true)
+    }
+    
+    func showsMenu() {
+     
+        menu = NSBundle.mainBundle().loadNibNamed("MenuView", owner: self, options: nil).last as! UIView
+        menu.frame = CGRectMake(0, 0, menu.frame.size.width, self.view.frame.size.height)
+        self.view.addSubview(menu)
+        self.tableView.scrollEnabled = false
+        self.tabBarController?.tabBar.userInteractionEnabled = false
+        menu.userInteractionEnabled = true
+        let anim = CABasicAnimation(keyPath: "position.x")
+        anim.fromValue = 0-menu.frame.size.width
+        anim.toValue = menu.frame.size.width/2
+        anim.duration = 0.6
+        anim.removedOnCompletion = true
+        anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        menu.layer.addAnimation(anim, forKey: "show")
+        menu.layer.position = CGPointMake(menu.frame.size.width/2, self.view.center.y)
+        let back = menu.viewWithTag(1) as! UIButton
+        back.addTarget(self, action: "closeMenu", forControlEvents: .TouchUpInside)
+    }
+    
+    func closeMenu() {
+        self.tableView.scrollEnabled = true
+        self.tabBarController?.tabBar.userInteractionEnabled = true
+        let exit = CABasicAnimation(keyPath: "position.x")
+        exit.fromValue = menu.frame.size.width/2
+        exit.toValue = 0-menu.frame.size.width
+        exit.duration = 0.6
+        exit.delegate = self
+        exit.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        menu.layer.addAnimation(exit, forKey: "hide")
+        menu.layer.position = CGPointMake(0-menu.frame.size.width, self.view.center.y)
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        menu.removeFromSuperview()
     }
     
     func changePic(){
