@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import AudioToolbox
 
 class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabBarControllerDelegate {
     
@@ -36,14 +37,17 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         let im2 = UIImage(named: "second")
         homeN.tabBarItem.image = im2
         homeN.tabBarItem.tag = 1
+        homeN.tabBarItem.title = "user"
 
-        let im3 = UIImage(named: "slide")
+        let im3 = UIImage(named: "second")
         tableN.tabBarItem.image = im3
         tableN.tabBarItem.tag = 2
+        tableN.tabBarItem.title = "all"
 
-        let im4 = UIImage(named: "first")
+        let im4 = UIImage(named: "second")
         recN.tabBarItem.image = im4
         recN.tabBarItem.tag = 3
+        recN.tabBarItem.title = "record"
         self.viewControllers = [homeN, recN, tableN]
         self.delegate = self
         longPress.delegate = self
@@ -54,7 +58,7 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
     }
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        
+       
         if (self.sel == true) {
             return true
         } else {
@@ -89,49 +93,64 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         let spin = SpinLoading(frame: CGRectMake(180, 180, 60, 60))
         self.selectedViewController?.view.addSubview(spin)
             spin.animate(120)
-            keep.removeFromSuperview()
             let recorder = Recorder()
-            url = recorder.recordWithPermission(true) 
-            
+            url = recorder.recordWithPermission(true)
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
         } else if (longPress.state == .Ended) {
         self.selectedViewController?.view.subviews.last?.removeFromSuperview()
+            let recorder = Recorder()
+            recorder.stop()
             setSave()
         }
     }
     
     func addView() {
         keep = NSBundle.mainBundle().loadNibNamed("KeepPressed", owner: self, options: nil).last as! UIView
-        keep!.alpha = 0
+        keep.layer.removeAllAnimations()
         keep.layer.cornerRadius = 20
-        keep!.frame = CGRectMake(0, self.view.frame.size.height - (self.tabBar.frame.height + 80), self.view.frame.size.width, 80)
+        keep!.frame = CGRectMake(0, 0, self.view.frame.size.width, 80)
+        if (longPress.state != .Began) {
         self.view.addSubview(keep)
-        UIView.animateWithDuration(1, delay: 0, options: .Autoreverse, animations: { () -> Void in
-            self.keep.alpha = 1
-            }) { (done) -> Void in
-                self.keep.alpha = 0
-                self.keep.removeFromSuperview()
         }
+        let animate = CABasicAnimation(keyPath: "position.y")
+        animate.duration = 1.2
+        animate.fromValue = self.view.frame.size.height
+        animate.toValue = self.view.frame.size.height - (self.tabBar.frame.height)
+        animate.delegate = self
+        let fading = CABasicAnimation(keyPath: "opacity")
+        fading.duration = 1
+        fading.fromValue = 1
+        fading.toValue = 0
+        fading.fillMode = kCAFillModeForwards
+        fading.removedOnCompletion = false
+        keep.layer.addAnimation(animate, forKey: "incoming")
+        keep.layer.addAnimation(fading, forKey: "alpha")
+        keep.layer.position = CGPointMake(self.view.center.x, self.view.frame.size.height - (self.tabBar.frame.height))
     }
     
     func setSave() {
-        let test = TestViewController()
-        self.view.addSubview(test.view)
+        let test = NSBundle.mainBundle().loadNibNamed("Test", owner: self, options: nil).last as! UIView
+        self.view.addSubview(test)
         let animate = CABasicAnimation(keyPath: "position.y")
-        animate.fromValue = 800
+        animate.fromValue = self.view.frame.size.height
+        animate.duration = 0.6
+        animate.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animate.toValue = self.view.center.y
-        test.view.layer.addAnimation(animate, forKey: "ciao")
-        let backButton = test.view.viewWithTag(1) as! UIButton
+        test.layer.addAnimation(animate, forKey: "incoming")
+        test.layer.position = CGPointMake(self.view.center.x, self.view.center.y)
+        let backButton = test.viewWithTag(1) as! UIButton
         backButton.addTarget(self, action: "remove", forControlEvents: .TouchUpInside)
-        let saveBn = test.view.viewWithTag(2) as! UIButton
+        let saveBn = test.viewWithTag(2) as! UIButton
         saveBn.addTarget(self, action: "saveRecord", forControlEvents: .TouchUpInside)
-
+        self.tabBar.userInteractionEnabled = false
     }
     
     func saveRecord(){
         let data = NSData(contentsOfURL: self.url!)
         let name = self.view.subviews[self.view.subviews.count - 1].viewWithTag(3) as! UITextField
         name.userInteractionEnabled = true
-        
+        self.tabBar.userInteractionEnabled = true
+
         let file = PFFile(name: name.text, data: data!)
         let object = PFObject(className: "Wrabbles")
         object["rec"] = file
@@ -149,6 +168,8 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
     }
     
     func remove() {
+        self.tabBar.userInteractionEnabled = true
+
         test =  self.view.subviews[self.view.subviews.count - 1]
         test.layer.removeAllAnimations()
         let animate = CABasicAnimation(keyPath: "position.y")
@@ -156,17 +177,25 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         animate.toValue = 800
         animate.delegate = self
         let fading = CABasicAnimation(keyPath: "opacity")
-        fading.duration = 0.2
+        fading.duration = 0.6
         fading.fromValue = 1
         fading.toValue = 0
         fading.fillMode = kCAFillModeForwards
         fading.removedOnCompletion = false
         test.layer.addAnimation(animate, forKey: "ciao")
         test.layer.addAnimation(fading, forKey: "alpha")
+        test.layer.position = CGPointMake(self.view.center.x, 800)
+    }
+    
+    override func animationDidStart(anim: CAAnimation) {
+        
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        test.removeFromSuperview()
+        if (test != nil) {
+            test.removeFromSuperview()}
+        if (keep != nil) {
+            keep.removeFromSuperview()}
         self.selectedViewController?.reloadInputViews()
     }
     

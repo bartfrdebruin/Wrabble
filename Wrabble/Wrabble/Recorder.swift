@@ -39,7 +39,6 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
             recorder.delegate = self
             recorder.meteringEnabled = true
             recorder.prepareToRecord()
-            // creates/overwrites the file at soundFileURL
         } catch let error as NSError {
             recorder = nil
             print(error.localizedDescription)
@@ -52,7 +51,6 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         if (session.respondsToSelector("requestRecordPermission:")) {
             AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
                 if granted {
-//                    self.setSessionPlayAndRecord()
                     if setup {
                         self.setupRecorder()
                     }
@@ -66,15 +64,8 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         return self.recorder.url
     }
     
-    func stop(sender: UIButton) {
-        
+    func stop() {
         recorder?.stop()
-        let session = AVAudioSession.sharedInstance()
-        do {
-            try session.setActive(false)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
     }
 
 
