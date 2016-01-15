@@ -10,26 +10,39 @@ import UIKit
 import Parse
 import ParseUI
 
-class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
+class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    let searchController = UISearchController(searchResultsController: nil)
-    var searchBarActive:Bool = false
-
-
+    var collectionView: UICollectionView!
+    var searchBar: UISearchBar!
+    //let searchController =    (searchResultsController: nil)
+    
     var users : Array<PFObject>?
-    var filtered : Array<PFObject>?
+    var emptyArray : Array<PFObject>?
+    var searchBarActive:Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view = UIView(frame: UIScreen.mainScreen().bounds)
+
+        // Do any additional setup after loading the view, typically from a nib.
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 90, height: 120)
+        
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout:layout)
         collectionView.dataSource = self
         collectionView.delegate = self
+        searchBar = UISearchBar(frame: CGRectMake(0,100,self.view.frame.size.width, 50))
+        searchBar.delegate = self
         let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
         collectionView.registerNib(nib, forCellWithReuseIdentifier: "Cell")
-        searchBar.delegate = self
+        collectionView.backgroundColor = UIColor.whiteColor()
         getUsers()
         self.navigationController?.navigationBarHidden = false
+        self.view.addSubview(collectionView)
+        self.view.addSubview(searchBar)
+
     }
     
     func getUsers() {
@@ -41,7 +54,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func filterContentForSearchText(searchText:String){
-        self.filtered = self.users?.filter({ (ob:PFObject) -> Bool in
+        self.emptyArray = self.users?.filter({ (ob:PFObject) -> Bool in
             let us = ob["username"]
             return us.containsString(searchText)
         })
@@ -77,7 +90,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     // Collection View.
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.searchBarActive {
-            return self.filtered!.count;
+            return self.emptyArray!.count;
         } else {
             if users == nil {
                 return 0
@@ -87,27 +100,42 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         }
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
-        let file = self.users![indexPath.row]["image"] as! PFFile
-        cell.image.file = file
-        cell.image.layer.cornerRadius = cell.image.frame.size.width/2
-        cell.image.loadInBackground()
-        cell.label.text = self.users![indexPath.row]["username"] as? String
-        return cell
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(90, 100)
     }
     
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        // for SearchBar array
+        
+        if (self.searchBarActive == true)
+        {
+            let object = self.emptyArray![indexPath.row]
+            
+            let cell = self.setCell(object, indexPath: indexPath)
+            return cell
+        } else {
+            let object = self.users![indexPath.row]
+            self.setCell(object, indexPath: indexPath)
+            let cell = self.setCell(object, indexPath: indexPath)
+            return cell
+        }
+    }
+    
+    func setCell(object: PFObject, indexPath : NSIndexPath) -> CollectionViewCell{
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
+        let file = object["image"] as! PFFile
+        cell.image.file = file
+        cell.image.layer.cornerRadius = cell.image.frame.size.width/2
+        cell.image.clipsToBounds = true
+        cell.image.loadInBackground()
+        cell.label.text = object["username"] as? String
+        return cell
+    }
+
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
     }
-    
-    
-    
-    
-    
-    
-    
     
     
 }
