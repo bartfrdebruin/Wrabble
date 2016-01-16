@@ -38,6 +38,7 @@
 		FD71F8C51C485496004BCD67 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */; };
 		FD71F8C61C485496004BCD67 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */; };
 		FD71F8C81C494B9A004BCD67 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8C71C494B9A004BCD67 /* PeopleViewController.swift */; };
+		FD71F8FF1C49BEC9004BCD67 /* AllPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8FE1C49BEC9004BCD67 /* AllPeopleViewController.swift */; };
 		FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA55BC71C45669300C9BE74 /* SpinLoading.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		FD71F8C71C494B9A004BCD67 /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		FD71F8FE1C49BEC9004BCD67 /* AllPeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPeopleViewController.swift; sourceTree = "<group>"; };
 		FDA55BC71C45669300C9BE74 /* SpinLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +172,7 @@
 				FD71F8BD1C4822CE004BCD67 /* MenuView.xib */,
 				1D689C601C440B390044B0B8 /* CollectionViewController.swift */,
 				9C5AEAFD1C493130006D3A9F /* FollowersVC.swift */,
+				FD71F8FE1C49BEC9004BCD67 /* AllPeopleViewController.swift */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
 				FD4503F91C43CC1A00671501 /* FirstViewController.xib */,
 				FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */,
@@ -421,6 +424,7 @@
 				9C3C9FA51C400492002CDB3C /* SignupViewController.swift in Sources */,
 				9C5AEAFE1C493130006D3A9F /* FollowersVC.swift in Sources */,
 				FD2BFBFB1C44135E0036EB9B /* UserViewController.swift in Sources */,
+				FD71F8FF1C49BEC9004BCD67 /* AllPeopleViewController.swift in Sources */,
 				FD4504041C43CC1A00671501 /* TableViewController.swift in Sources */,
 				1D689C611C440B390044B0B8 /* CollectionViewController.swift in Sources */,
 				FD71F8B81C47CE2F004BCD67 /* Recorder.swift in Sources */,

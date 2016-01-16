@@ -18,8 +18,8 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
     @IBOutlet var password: UITextField!
     @IBOutlet var oops: UILabel!
     @IBOutlet var closeButton: UIButton!
+    var lc = SignupViewController()
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
         self.navigationController?.setToolbarHidden(true, animated: true)
         emailLogin.placeholder = "Username..."
         password.placeholder = "Password..."
-
     }
     
     @IBAction func dismissWarning(sender: AnyObject) {
@@ -72,34 +71,32 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
     
     func startTab() {
         let tabbar = TabViewController()
-        self.navigationController?.pushViewController(tabbar, animated: true)
-    
+        self.presentViewController(tabbar, animated: true, completion: nil)
     }
  
     @IBAction func signup(sender: UIButton) {
-        
-       let lc = SignupViewController()
-//        let animate = CABasicAnimation(keyPath: "position.y")
-//        animate.toValue = self.view.center.y
-//        animate.fromValue = 600
-//        lc.view.layer.addAnimation(animate, forKey: "")
-//        let fading = CABasicAnimation(keyPath: "opacity")
-//        fading.duration = 0.4
-//        fading.fromValue = 1
-//        fading.toValue = 0
-//        fading.fillMode = kCAFillModeForwards
-//        fading.removedOnCompletion = false
-//        lc.view.layer.addAnimation(fading, forKey: "alpha")
-        let spring = CASpringAnimation (keyPath: "position.y")
-        spring.damping = 0.9
-        spring.fromValue = 16
-        spring.toValue = self.view.center.y
-        lc.view.layer.addAnimation(spring, forKey: "spring")
         self.view.addSubview(lc.view)
-      
-
+        let animate = CABasicAnimation(keyPath: "position.y")
+        animate.fromValue = 600
+        animate.toValue = self.view.center.y
+        lc.view.layer.addAnimation(animate, forKey: "")
+        let fading = CABasicAnimation(keyPath: "opacity")
+        fading.duration = 0.4
+        fading.fromValue = 0
+        fading.toValue = 1
+        fading.fillMode = kCAFillModeForwards
+        fading.removedOnCompletion = false
+        lc.view.layer.addAnimation(fading, forKey: "alpha")
+        let sign = lc.view.viewWithTag(1) as! UIButton
+        sign.addTarget(self, action: "mySignup", forControlEvents: .TouchUpInside)
     }
 
+    func mySignup() {
+        lc.mySignUp()
+    }
+    
+    
+    
    func textFieldShouldReturn(textField: UITextField) -> Bool  {
      emailLogin.resignFirstResponder()
      password.resignFirstResponder()

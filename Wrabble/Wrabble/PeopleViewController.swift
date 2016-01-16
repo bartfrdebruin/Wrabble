@@ -38,13 +38,6 @@ class PeopleViewController: UserViewController {
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
     }
     
-//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        self.headerView = NSBundle.mainBundle().loadNibNamed("Header", owner: self, options: nil).first as! UIView
-//        headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 120);
-//        setHeader()
-//        return headerView
-//    }
-    
     override func setHeader() {
         let wrabbles = headerView.viewWithTag(1) as! UILabel
         wrabbles.text = "\(objects!.count) Wrabbles"
@@ -53,11 +46,15 @@ class PeopleViewController: UserViewController {
         followers.setTitle("\(followersArray.count) Followers", forState: .Normal)
         followers.addTarget(self, action: "pushFollowers", forControlEvents: .TouchUpInside)
         let following = headerView.viewWithTag(3) as! UIButton
-        let followingArray = userPeople["followers"] as! Array<String>
+        let followingArray = userPeople["following"] as! Array<String>
         following.setTitle("\(followingArray.count) Following", forState: .Normal)
         following.addTarget(self, action: "pushFollowing", forControlEvents: .TouchUpInside)
         let changePic = headerView.viewWithTag(4) as! UIButton
-        changePic.removeFromSuperview()
+        changePic.setTitle("Follow", forState: .Normal)
+        if (followersArray.contains((PFUser.currentUser()?.objectId)!)) {
+            changePic.enabled = false
+        }
+        changePic.addTarget(self, action: "follow:", forControlEvents: .TouchUpInside)
         let menu = headerView.viewWithTag(7) as! UIButton
         menu.userInteractionEnabled = true
         menu.addTarget(self, action: "back", forControlEvents: .TouchUpInside)
@@ -70,6 +67,20 @@ class PeopleViewController: UserViewController {
         headerView.setNeedsDisplay()
         let userLabel = headerView.viewWithTag(6) as! UILabel
         userLabel.text = self.userPeople["username"] as? String
+    }
+    
+    func follow(sender : UIButton) {
+        var following = PFUser.currentUser()!["following"] as? Array<String>
+        following?.append(userPeople.objectId!)
+        PFUser.currentUser()!["following"] = following
+        PFUser.currentUser()?.saveInBackground()
+        var follower = userPeople!["followers"] as? Array<String>
+        follower!.append(PFUser.currentUser()!.objectId!)
+        userPeople!["followers"] = follower
+        userPeople.saveInBackgroundWithBlock { (done, error) -> Void in
+            sender.enabled = false
+        }
+        setHeader()
     }
     
     func back() {

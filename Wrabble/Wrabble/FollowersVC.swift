@@ -38,6 +38,7 @@ class FollowersVC: CollectionViewController {
             let user = PFUser.currentUser()
             let array = user!["following"] as? Array<String>
             let query = PFQuery.queryForUser()
+            query.orderByAscending("username")
             query.whereKey("objectId", containedIn: array!)
             query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
                 self.users = objects
