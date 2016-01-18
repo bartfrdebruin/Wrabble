@@ -9,11 +9,16 @@
 import UIKit
 import Parse
 
-class SignupViewController: UIViewController, UITextFieldDelegate {
+protocol Done {
+    func done()
+}
+
+class SignupViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet var littleView: UIView!
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
     @IBOutlet var email: UITextField!
+    var delegate:Done?
     
     
     override func viewDidLoad() {
@@ -44,25 +49,36 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUp(sender: AnyObject) {
-        [self .mySignUp()]
+        self.mySignUp()
     }
     
     func mySignUp() {
+        delegate?.done()
         let user = PFUser()
         user.username = email.text
         user.password = password.text
         user.email = email.text
-        
-        
+        user["following"] = []
+        user["followers"] = []
+        let image = UIImage(named: "slide")
+        let data = UIImageJPEGRepresentation(image!, 0.5)
+        let file = PFFile(data: data!)
+        user["image"] = file
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
-            if let error = error {
-                let errorString = error.userInfo["error"] as? NSString
+            if (error != nil) {
+                let errorString = error!.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
             } else {
+                let tabbar = TabViewController()
+                self.presentViewController(tabbar, animated: true, completion: nil)
                 // Hooray! Let them use the app now.
             }
         }
+    }
+    
+    func done() {
+        print("done")
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool  {

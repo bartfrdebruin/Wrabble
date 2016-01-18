@@ -27,28 +27,35 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
 
         let home = UserViewController()
         let homeN = UINavigationController(rootViewController: home)
-        
-        let table = TableViewController()
-        let tableN = UINavigationController(rootViewController: table)
-        
-        let rec = FirstViewController()
-        let recN = UINavigationController(rootViewController: rec)
-        
         let im2 = UIImage(named: "second")
         homeN.tabBarItem.image = im2
         homeN.tabBarItem.tag = 1
         homeN.tabBarItem.title = "user"
-
+        
+        let table = TableViewController()
+        let tableN = UINavigationController(rootViewController: table)
         let im3 = UIImage(named: "second")
         tableN.tabBarItem.image = im3
         tableN.tabBarItem.tag = 2
         tableN.tabBarItem.title = "all"
+        
+        let rec = FirstViewController()
+        let recN = UINavigationController(rootViewController: rec)
 
         let im4 = UIImage(named: "second")
         recN.tabBarItem.image = im4
         recN.tabBarItem.tag = 3
         recN.tabBarItem.title = "record"
-        self.viewControllers = [homeN, recN, tableN]
+        
+        let all = AllPeopleViewController()
+        let allN = UINavigationController(rootViewController: all)
+        
+        let im5 = UIImage(named: "second")
+        allN.tabBarItem.image = im5
+        allN.tabBarItem.tag = 4
+        allN.tabBarItem.title = "all People"
+        
+        self.viewControllers = [homeN, recN, tableN, allN]
         self.delegate = self
         longPress.delegate = self
         self.tabBar.addGestureRecognizer(longPress)

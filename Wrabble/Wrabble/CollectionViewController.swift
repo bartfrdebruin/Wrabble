@@ -49,8 +49,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         } else {
         let user = PFUser.currentUser()
         let array = user!["followers"] as? Array<String>
-        let query = PFQuery.queryForUser()
+        let query = PFUser.query()!
         query.whereKey("objectId", containedIn: array!)
+        query.orderByAscending("username")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             self.users = objects
             self.collectionView.reloadData()
@@ -129,7 +130,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     func setCell(object: PFObject, indexPath : NSIndexPath) -> CollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
-        let file = object["image"] as! PFFile
+        let file = object["image"] as? PFFile
         cell.image.file = file
         cell.image.layer.cornerRadius = cell.image.frame.size.width/2
         cell.image.clipsToBounds = true
