@@ -18,15 +18,16 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: .Plain, className: "Wrabbles")
-        let nib = UINib(nibName: "TableViewCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
-        user = PFUser.currentUser()
-        user.fetchInBackground()
+  
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBarHidden = true
+        let nib = UINib(nibName: "TableViewCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        user = PFUser.currentUser()
+        user.fetchInBackground()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -80,8 +81,12 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         let wrabbles = headerView.viewWithTag(1) as! UILabel
         wrabbles.text = "\(objects!.count) Wrabbles"
         let followers = headerView.viewWithTag(2) as! UIButton
+        let followersArray = user["followers"] as! Array<String>
+        followers.setTitle("\(followersArray.count) Followers", forState: .Normal)
         followers.addTarget(self, action: "pushFollowers", forControlEvents: .TouchUpInside)
         let following = headerView.viewWithTag(3) as! UIButton
+        let followingArray = user["following"] as! Array<String>
+        following.setTitle("\(followingArray.count) Following", forState: .Normal)
         following.addTarget(self, action: "pushFollowing", forControlEvents: .TouchUpInside)
         let changePic = headerView.viewWithTag(4) as! UIButton
         let menu = headerView.viewWithTag(7) as! UIButton
@@ -106,12 +111,7 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
     }
     
     func pushFollowing() {
-//        PFUser.logOutInBackgroundWithBlock { (error) -> Void in
-//            if (error == nil){
-//                let following = LoginViewController()
-//                self.navigationController?.pushViewController(following, animated: true)
-//            }
-//        }
+
         let following = FollowersVC()
         self.navigationController?.pushViewController(following, animated: true)
     }
@@ -134,6 +134,8 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         menu.layer.position = CGPointMake(menu.frame.size.width/2, self.view.center.y)
         let back = menu.viewWithTag(1) as! UIButton
         back.addTarget(self, action: "closeMenu:", forControlEvents: .TouchUpInside)
+        let logOut = menu.viewWithTag(2) as! UIButton
+        logOut.addTarget(self, action: "logOut", forControlEvents: .TouchUpInside)
         let rotate = CABasicAnimation(keyPath: "transform.rotation.z")
         rotate.fromValue = 0
         rotate.toValue = (M_PI*2)
@@ -161,6 +163,17 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         rotate.repeatCount = 1
         rotate.removedOnCompletion = true
         sender.layer.addAnimation(rotate, forKey: "rotation")
+    }
+    
+    
+    func logOut() {
+        PFUser.logOutInBackgroundWithBlock { (error) -> Void in
+            if (error == nil){
+                let log = LoginViewController()
+                self.navigationController?.viewControllers = [log, self]
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
