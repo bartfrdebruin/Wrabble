@@ -140,10 +140,18 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let userPeople = self.users![indexPath.row]
-        let people = PeopleViewController()
-        people.userPeople = userPeople
-        self.navigationController?.pushViewController(people, animated: true)
+        if (self.searchBarActive == true){
+            let userPeople = self.emptyArray![indexPath.row]
+            let people = PeopleViewController()
+            people.userPeople = userPeople
+            self.navigationController?.pushViewController(people, animated: true)
+        } else {
+            let userPeople = self.users![indexPath.row]
+            let people = PeopleViewController()
+            people.userPeople = userPeople
+            self.navigationController?.pushViewController(people, animated: true)
+        }
+     
     }
 }
 

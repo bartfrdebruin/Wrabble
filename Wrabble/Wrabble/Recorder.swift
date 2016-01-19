@@ -11,14 +11,51 @@ import AVFoundation
 
 class Recorder: NSObject, AVAudioRecorderDelegate {
     
-    var recorder : AVAudioRecorder!
+    var recorder: AVAudioRecorder!
+    var fileName : String!
+    var meterTimer:NSTimer!
     var soundFileURL:NSURL!
-
+    
+    
+    func updateAudioMeter(timer:NSTimer) {
+        if recorder.recording {
+            recorder.updateMeters()
+        }
+    }
+    
+    
+     func record() {
+        
+        if recorder == nil {
+            recordWithPermission(true)
+            return
+        }
+        if recorder != nil && recorder.recording {
+            recorder.pause()
+            
+        } else {
+            recordWithPermission(false)
+        }
+    }
+    
+     func stop() {
+        
+        recorder?.stop()
+        
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setActive(false)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
     
     func setupRecorder() {
-        let format = NSDateFormatter()
+        setSessionPlayback()
+       let format = NSDateFormatter()
         format.dateFormat="yyyy-MM-dd-HH-mm-ss"
-        let fileName = "recording-\(format.stringFromDate(NSDate())).m4a" 
+        fileName = "recording-\(format.stringFromDate(NSDate())).m4a"
         
         let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         self.soundFileURL = documentsDirectory.URLByAppendingPathComponent(fileName)
@@ -46,7 +83,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         
     }
     
-    func recordWithPermission(setup:Bool) -> NSURL{
+    func recordWithPermission(setup:Bool) {
         let session:AVAudioSession = AVAudioSession.sharedInstance()
         if (session.respondsToSelector("requestRecordPermission:")) {
             AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
@@ -55,24 +92,30 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
                         self.setupRecorder()
                     }
                     self.recorder.recordForDuration(5.0)
-                    
+                    self.meterTimer = NSTimer.scheduledTimerWithTimeInterval(0.1,
+                        target:self,
+                        selector:"updateAudioMeter:",
+                        userInfo:nil,
+                        repeats:true)
                 } else {
                 }
             })
         } else {
         }
-        return self.recorder.url
     }
     
-    func stop() {
-        recorder?.stop()
-    }
-
-
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder,
-            successfully flag: Bool) {
+    func setSessionPlayback() {
+        let session:AVAudioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayback)
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
-    
-    
-    
+        do {
+            try session.setActive(true)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
 }

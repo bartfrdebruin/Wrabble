@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import AudioToolbox
+import AVFoundation
 
 class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabBarControllerDelegate {
     
@@ -19,6 +20,7 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
     var keep : UIView!
     var test : UIView!
     var url : NSURL?
+    var spin : SpinLoading!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         longPress = UIGestureRecognizer()
@@ -97,11 +99,12 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
     
     func pressed() {
         if (longPress.state == .Began) {
-        let spin = SpinLoading(frame: CGRectMake(180, 180, 60, 60))
+            spin = SpinLoading(frame: CGRectMake(180, 180, 60, 60))
         self.selectedViewController?.view.addSubview(spin)
             spin.animate(120)
             let recorder = Recorder()
-            url = recorder.recordWithPermission(true)
+            recorder.record()
+            url = recorder.soundFileURL
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
         } else if (longPress.state == .Ended) {
             let recorder = Recorder()
@@ -180,7 +183,6 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
     
     func remove() {
         self.tabBar.userInteractionEnabled = true
-
         test =  self.view.subviews[self.view.subviews.count - 1]
         test.layer.removeAllAnimations()
         let animate = CABasicAnimation(keyPath: "position.y")
@@ -196,6 +198,7 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         test.layer.addAnimation(animate, forKey: "ciao")
         test.layer.addAnimation(fading, forKey: "alpha")
         test.layer.position = CGPointMake(self.view.center.x, 800)
+        spin.removeFromSuperview()
     }
     
     override func animationDidStart(anim: CAAnimation) {

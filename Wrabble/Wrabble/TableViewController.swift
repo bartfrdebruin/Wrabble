@@ -69,7 +69,7 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     func playRecord(sender : UIButton) {
 
         tagPlay = sender.tag
-        setSessionPlayback()
+//        setSessionPlayback()
         if (player != nil && player.playing == true){
             self.afterPlay(cellSelected)
         }

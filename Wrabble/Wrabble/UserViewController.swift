@@ -28,6 +28,10 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         user = PFUser.currentUser()
         user.fetchInBackground()
+        self.reloadInputViews()
+        if headerView != nil {
+            setHeader()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
