@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         if (PFUser.currentUser() != nil) {
             startTab()
-//            let t = TableViewController()
+//            let t = FirstViewController()
 //            self.window!.rootViewController = t
         } else {
             let tabbar = UITabBarController()

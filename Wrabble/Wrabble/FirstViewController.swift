@@ -109,8 +109,8 @@ import Parse
     }
     
     @IBAction func play(sender: UIButton) {
-//        setSessionPlayback()
-//        play()
+        setSessionPlayback()
+        play()
         let circ = SpinLoading(frame: CGRectMake(0, 0, 100, 100))
         circ.center = self.view.center
         self.view.addSubview(circ)
