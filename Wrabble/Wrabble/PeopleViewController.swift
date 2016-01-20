@@ -41,20 +41,23 @@ class PeopleViewController: UserViewController {
     override func setHeader() {
         let wrabbles = headerView.viewWithTag(1) as! UILabel
         wrabbles.text = "\(objects!.count) Wrabbles"
-        let followers = headerView.viewWithTag(2) as! UIButton
-        let followersArray = userPeople["followers"] as! Array<String>
-        followers.setTitle("\(followersArray.count) Followers", forState: .Normal)
-        followers.addTarget(self, action: "pushFollowers", forControlEvents: .TouchUpInside)
-        let following = headerView.viewWithTag(3) as! UIButton
-        let followingArray = userPeople["following"] as! Array<String>
-        following.setTitle("\(followingArray.count) Following", forState: .Normal)
-        following.addTarget(self, action: "pushFollowing", forControlEvents: .TouchUpInside)
-        let changePic = headerView.viewWithTag(4) as! UIButton
-        changePic.setTitle("Follow", forState: .Normal)
-        if (followersArray.contains((PFUser.currentUser()?.objectId)!)) {
-            changePic.enabled = false
+        let followersButton = headerView.viewWithTag(2) as! UIButton
+        let query = PFQuery(className: "followers")
+        query.whereKey("userID", equalTo: (userPeople.objectId)!)
+        query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
+            self.followOb = object
+            self.followers = object!["followers"] as! Array<String>
+            followersButton.setTitle("\(self.followers.count) Followers", forState: .Normal)
+            followersButton.addTarget(self, action: "pushFollowers", forControlEvents: .TouchUpInside)
+            let followingButton = self.headerView.viewWithTag(3) as! UIButton
+            self.following = object!["following"] as! Array<String>
+            followingButton.setTitle("\(self.following.count) Following", forState: .Normal)
+            followingButton.addTarget(self, action: "pushFollowing", forControlEvents: .TouchUpInside)
+            let changePic = self.headerView.viewWithTag(4) as! UIButton
+            changePic.setTitle("Follow", forState: .Normal)
+            changePic.addTarget(self, action: "follow:", forControlEvents: .TouchUpInside)
         }
-        changePic.addTarget(self, action: "follow:", forControlEvents: .TouchUpInside)
+
         let menu = headerView.viewWithTag(7) as! UIButton
         menu.userInteractionEnabled = true
         menu.addTarget(self, action: "back", forControlEvents: .TouchUpInside)
@@ -70,17 +73,23 @@ class PeopleViewController: UserViewController {
     }
     
     func follow(sender : UIButton) {
-        var following = PFUser.currentUser()!["following"] as? Array<String>
-        following?.append(userPeople.objectId!)
-        PFUser.currentUser()!["following"] = following
-        PFUser.currentUser()?.saveInBackground()
-        var follower = userPeople!["followers"] as? Array<String>
-        follower!.append(PFUser.currentUser()!.objectId!)
-        userPeople!["followers"] = follower
-        userPeople.saveInBackgroundWithBlock { (done, error) -> Void in
-            sender.enabled = false
+        var followers = followOb["followers"] as? Array<String>
+        followers?.append((PFUser.currentUser()?.objectId)!)
+        followOb!["followers"] = followers
+        followOb.saveInBackground()
+        
+        let query = PFQuery(className: "followers")
+        query.whereKey("userID", equalTo: PFUser.currentUser()!.objectId!)
+        query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
+            var following = object!["following"] as? Array<String>
+            following!.append(self.userPeople.objectId!)
+            object!["following"] = following
+            object!.saveInBackgroundWithBlock { (done, error) -> Void in
+                sender.enabled = false
+            }
+            self.setHeader()
         }
-        setHeader()
+      
     }
     
     func back() {
@@ -89,27 +98,14 @@ class PeopleViewController: UserViewController {
     
     override func pushFollowers() {
         let follower = CollectionViewController()
-        let array = userPeople.objectForKey("followers") as? Array<String>
-        let query = PFQuery.queryForUser()
-        query.whereKey("objectId", containedIn: array!)
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-        follower.users = objects
+        follower.array = self.followers
         self.navigationController?.pushViewController(follower, animated: true)
-        }
     }
     
     override func pushFollowing() {
-//        let spin = SpinLoading(frame: CGRectMake(self.view.center.x-50, self.view.center.y-50, 100, 100))
-//        self.view.addSubview(spin)
-//        spin.animate(150)
         let following = FollowersVC()
-        let array = userPeople.objectForKey("following") as? Array<String>
-        let query = PFQuery.queryForUser()
-        query.whereKey("objectId", containedIn: array!)
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            following.users = objects
-            self.navigationController?.pushViewController(following, animated: true)
-        }
+        following.array = self.following
+        self.navigationController?.pushViewController(following, animated: true)
     }
     
     

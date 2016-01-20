@@ -68,11 +68,15 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
             (succeeded: Bool, error: NSError?) -> Void in
             if (error != nil) {
                 let errorString = error!.userInfo["error"] as? NSString
-                // Show the errorString somewhere and let the user try again.
             } else {
-                let tabbar = TabViewController()
-                self.presentViewController(tabbar, animated: true, completion: nil)
-                // Hooray! Let them use the app now.
+                
+                let object = PFObject(className: "followers")
+                object["userID"] = PFUser.currentUser()?.objectId
+                object["followers"] = []
+                object["following"] = []
+                object.saveInBackgroundWithBlock({ (done, error) -> Void in
+                    let tabbar = TabViewController()
+                    self.presentViewController(tabbar, animated: true, completion: nil)                })
             }
         }
     }
