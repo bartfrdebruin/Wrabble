@@ -45,8 +45,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-vc-96q">
-                    <rect key="frame" x="198" y="30" width="74" height="30"/>
-                    <state key="normal" title="ChangePic"/>
+                    <rect key="frame" x="198" y="30" width="30" height="30"/>
+                    <state key="normal" title=" "/>
                 </button>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkL-8A-gZf">
                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -70,7 +70,7 @@
                 <constraint firstItem="fyf-HQ-eEW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lFa-PB-cfA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="52" y="380"/>
+            <point key="canvasLocation" x="77" y="371"/>
         </view>
     </objects>
 </document>

@@ -108,7 +108,6 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     
     
     func playing() {
-        
         if (cellSelected.detailView.hidden == true) {
         } else {
             cellSelected.detailView.hidden = true
