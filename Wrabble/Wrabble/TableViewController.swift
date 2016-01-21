@@ -18,6 +18,11 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     var tagPlaying : Int?
     var cellSelected : TableViewCell!
     var tagPlay : Int?
+    //to get oscilation for animation class
+    var meteringEnabled: Bool!
+    var averagePowerForChannel: CFloat!
+    var peakPeakPowerChannel: CFloat!
+
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: .Plain, className: "Wrabbles")
@@ -27,6 +32,8 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        player.meteringEnabled = true
+        //player.unpdateMeters()
         let frame = CGRectMake(self.view.center.x - 25, self.view.frame.size.height - 100, 50, 50)
         let butt = UIButton(frame:frame)
         let image = UIImage(named: "spinning")
@@ -182,4 +189,13 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
             cell.play.removeTarget(self, action: "stop:", forControlEvents: .TouchUpInside)
             cell.play.addTarget(self, action: "playRecord:", forControlEvents: .TouchUpInside)
     }
+
+    func unpdateMeters() {
+    var channels: Int = self.player.numberOfChannels
+    
+}
+
+    func timerFunc(timer:NSTimer!) {
+
+}
 }

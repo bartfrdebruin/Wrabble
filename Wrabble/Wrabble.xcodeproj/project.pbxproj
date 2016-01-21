@@ -22,6 +22,7 @@
 		9C3C9FA51C400492002CDB3C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C9FA31C400492002CDB3C /* SignupViewController.swift */; };
 		9C3C9FA61C400492002CDB3C /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3C9FA41C400492002CDB3C /* SignupViewController.xib */; };
 		9C5AEAFE1C493130006D3A9F /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5AEAFD1C493130006D3A9F /* FollowersVC.swift */; };
+		9CCB23EC1C51301E00A0963B /* PCSEQVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB23EB1C51301E00A0963B /* PCSEQVisualizer.swift */; };
 		FD2BFBFB1C44135E0036EB9B /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2BFBF91C44135E0036EB9B /* UserViewController.swift */; };
 		FD2BFBFE1C4419B80036EB9B /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD2BFBFD1C4419B80036EB9B /* Header.xib */; };
 		FD4504001C43CC1A00671501 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4503F91C43CC1A00671501 /* FirstViewController.xib */; };
@@ -84,6 +85,7 @@
 		9C3C9FA31C400492002CDB3C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		9C3C9FA41C400492002CDB3C /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		9C5AEAFD1C493130006D3A9F /* FollowersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
+		9CCB23EB1C51301E00A0963B /* PCSEQVisualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCSEQVisualizer.swift; sourceTree = "<group>"; };
 		B741A84895C44FAA18A8F868 /* Pods_Wrabble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wrabble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BFBF91C44135E0036EB9B /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		FD2BFBFD1C4419B80036EB9B /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				1D689C601C440B390044B0B8 /* CollectionViewController.swift */,
 				9C5AEAFD1C493130006D3A9F /* FollowersVC.swift */,
 				FD71F8FE1C49BEC9004BCD67 /* AllPeopleViewController.swift */,
+				9CCB23EB1C51301E00A0963B /* PCSEQVisualizer.swift */,
 				1D766DD41C3EC17400CFAD3D /* FirstViewController.swift */,
 				FD4503F91C43CC1A00671501 /* FirstViewController.xib */,
 				FD71F8C31C485496004BCD67 /* CollectionViewCell.swift */,
@@ -430,6 +433,7 @@
 				FD71F8FF1C49BEC9004BCD67 /* AllPeopleViewController.swift in Sources */,
 				FD4504041C43CC1A00671501 /* TableViewController.swift in Sources */,
 				1D689C611C440B390044B0B8 /* CollectionViewController.swift in Sources */,
+				9CCB23EC1C51301E00A0963B /* PCSEQVisualizer.swift in Sources */,
 				FD71F8B81C47CE2F004BCD67 /* Recorder.swift in Sources */,
 				FD4504011C43CC1A00671501 /* KYCircularProgress.swift in Sources */,
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
