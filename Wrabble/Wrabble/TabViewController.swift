@@ -160,7 +160,7 @@ class TabViewController: UITabBarController, UIGestureRecognizerDelegate, UITabB
         name.userInteractionEnabled = true
         self.tabBar.userInteractionEnabled = true
 
-        let file = PFFile(name: name.text, data: data!)
+        let file = PFFile(name: "file.m4a", data: data!)
         let object = PFObject(className: "Wrabbles")
         object["rec"] = file
         object["userID"] = PFUser.currentUser()?.objectId

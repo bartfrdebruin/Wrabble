@@ -58,8 +58,7 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
         user.username = email.text
         user.password = password.text
         user.email = email.text
-        user["following"] = []
-        user["followers"] = []
+        user["mash"] = []
         let image = UIImage(named: "slide")
         let data = UIImageJPEGRepresentation(image!, 0.5)
         let file = PFFile(data: data!)
@@ -69,7 +68,6 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
             if (error != nil) {
                 let errorString = error!.userInfo["error"] as? NSString
             } else {
-                
                 let object = PFObject(className: "followers")
                 object["userID"] = PFUser.currentUser()?.objectId
                 object["followers"] = []

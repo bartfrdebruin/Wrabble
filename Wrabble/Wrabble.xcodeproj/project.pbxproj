@@ -39,6 +39,7 @@
 		FD71F8C61C485496004BCD67 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */; };
 		FD71F8C81C494B9A004BCD67 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8C71C494B9A004BCD67 /* PeopleViewController.swift */; };
 		FD71F8FF1C49BEC9004BCD67 /* AllPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F8FE1C49BEC9004BCD67 /* AllPeopleViewController.swift */; };
+		FD766B4A1C4FB5C700FCF740 /* MashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD766B491C4FB5C700FCF740 /* MashViewController.swift */; };
 		FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA55BC71C45669300C9BE74 /* SpinLoading.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		FD71F8C41C485496004BCD67 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		FD71F8C71C494B9A004BCD67 /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		FD71F8FE1C49BEC9004BCD67 /* AllPeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPeopleViewController.swift; sourceTree = "<group>"; };
+		FD766B491C4FB5C700FCF740 /* MashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MashViewController.swift; sourceTree = "<group>"; };
 		FDA55BC71C45669300C9BE74 /* SpinLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 				FD4503FD1C43CC1A00671501 /* TableViewController.swift */,
 				FD71F8C71C494B9A004BCD67 /* PeopleViewController.swift */,
 				FD2BFBF91C44135E0036EB9B /* UserViewController.swift */,
+				FD766B491C4FB5C700FCF740 /* MashViewController.swift */,
 				FD2BFBFD1C4419B80036EB9B /* Header.xib */,
 				FDA55BC71C45669300C9BE74 /* SpinLoading.swift */,
 				FD4503FF1C43CC1A00671501 /* Test.xib */,
@@ -432,6 +435,7 @@
 				1D766DD31C3EC17400CFAD3D /* AppDelegate.swift in Sources */,
 				FD71F8C51C485496004BCD67 /* CollectionViewCell.swift in Sources */,
 				FD4504021C43CC1A00671501 /* TableViewCell.swift in Sources */,
+				FD766B4A1C4FB5C700FCF740 /* MashViewController.swift in Sources */,
 				1D766DD51C3EC17400CFAD3D /* FirstViewController.swift in Sources */,
 				FD71F8AD1C46B277004BCD67 /* TabViewController.swift in Sources */,
 				FDA55BC81C45669300C9BE74 /* SpinLoading.swift in Sources */,

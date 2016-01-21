@@ -23,6 +23,7 @@ class TableViewCell: PFTableViewCell, AVAudioPlayerDelegate {
     @IBOutlet weak var play: UIButton!
     var url : NSURL?
 
+    @IBOutlet weak var add: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

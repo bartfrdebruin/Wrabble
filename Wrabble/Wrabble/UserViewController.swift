@@ -152,6 +152,8 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         back.addTarget(self, action: "closeMenu:", forControlEvents: .TouchUpInside)
         let logOut = menu.viewWithTag(2) as! UIButton
         logOut.addTarget(self, action: "logOut", forControlEvents: .TouchUpInside)
+        let info = menu.viewWithTag(3) as! UIButton
+        info.addTarget(self, action: "info", forControlEvents: .TouchUpInside)
         let rotate = CABasicAnimation(keyPath: "transform.rotation.z")
         rotate.fromValue = 0
         rotate.toValue = (M_PI*2)
@@ -181,6 +183,12 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         sender.layer.addAnimation(rotate, forKey: "rotation")
     }
     
+    
+    func info() {
+        let mash = MashViewController()
+        mash.mashes = PFUser.currentUser()!["mash"] as! Array<String>
+        self.navigationController?.pushViewController(mash, animated: true)
+    }
     
     func logOut() {
         PFUser.logOutInBackgroundWithBlock { (error) -> Void in
