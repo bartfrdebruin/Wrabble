@@ -28,13 +28,13 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhh-fb-KUH">
-                            <rect key="frame" x="93" y="0.0" width="58" height="30"/>
-                            <state key="normal" title="Follower"/>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhh-fb-KUH">
+                            <rect key="frame" x="125" y="0.0" width="30" height="30"/>
+                            <state key="normal" title=" "/>
                         </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmY-7H-0Kq">
-                            <rect key="frame" x="239" y="0.0" width="65" height="30"/>
-                            <state key="normal" title="Following"/>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmY-7H-0Kq">
+                            <rect key="frame" x="274" y="0.0" width="30" height="30"/>
+                            <state key="normal" title=" "/>
                         </button>
                     </subviews>
                 </stackView>
@@ -45,8 +45,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-vc-96q">
-                    <rect key="frame" x="198" y="30" width="74" height="30"/>
-                    <state key="normal" title="ChangePic"/>
+                    <rect key="frame" x="198" y="30" width="30" height="30"/>
+                    <state key="normal" title=" "/>
                 </button>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkL-8A-gZf">
                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -70,7 +70,7 @@
                 <constraint firstItem="fyf-HQ-eEW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lFa-PB-cfA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="52" y="380"/>
+            <point key="canvasLocation" x="77" y="371"/>
         </view>
     </objects>
 </document>

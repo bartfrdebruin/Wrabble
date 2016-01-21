@@ -18,6 +18,11 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     var tagPlaying : Int?
     var cellSelected : TableViewCell!
     var tagPlay : Int?
+    //to get oscilation for animation class
+    var meteringEnabled: Bool!
+    var averagePowerForChannel: CFloat!
+    var peakPeakPowerChannel: CFloat!
+
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: .Plain, className: "Wrabbles")
@@ -27,6 +32,8 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        player.meteringEnabled = true
+        //player.unpdateMeters()
         let frame = CGRectMake(self.view.center.x - 25, self.view.frame.size.height - 100, 50, 50)
         let butt = UIButton(frame:frame)
         let image = UIImage(named: "spinning")
@@ -63,6 +70,8 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         cell!.play.tag = indexPath.row
         cell!.play.addTarget(self, action: "playRecord:", forControlEvents: .TouchUpInside)
         cell!.selectionStyle = UITableViewCellSelectionStyle.None
+        cell!.add.tag = indexPath.row
+        cell!.add.addTarget(self, action: "addMash:", forControlEvents: .TouchUpInside)
         return cell
     }
     
@@ -75,10 +84,10 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         }
         let ob = objects![sender.tag] as! PFObject
         let file = ob["rec"] as! PFFile
-        file.getFilePathInBackgroundWithBlock { (string, error) -> Void in
-            let url = NSURL(fileURLWithPath: string!)
+        file.getDataInBackgroundWithBlock { (data, error) -> Void in
+
             do {
-                self.player = try AVAudioPlayer(contentsOfURL: url)
+                self.player = try AVAudioPlayer(data: data!, fileTypeHint: "m4a")
                 self.player.delegate = self
                 self.player.prepareToPlay()
                 self.player.volume = 1.0
@@ -106,9 +115,16 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
         }
     }
     
+    func addMash (sender : UIButton) {
+        let ob = objects![sender.tag] as! PFObject
+        var arr = PFUser.currentUser()!["mash"] as! Array<String>
+        arr.append(ob.objectId!)
+        PFUser.currentUser()!.setObject(arr, forKey: "mash")
+        PFUser.currentUser()!.saveInBackground()
+    }
+
     
     func playing() {
-        
         if (cellSelected.detailView.hidden == true) {
         } else {
             cellSelected.detailView.hidden = true
@@ -173,4 +189,13 @@ class TableViewController: PFQueryTableViewController, AVAudioPlayerDelegate {
             cell.play.removeTarget(self, action: "stop:", forControlEvents: .TouchUpInside)
             cell.play.addTarget(self, action: "playRecord:", forControlEvents: .TouchUpInside)
     }
+
+    func unpdateMeters() {
+    var channels: Int = self.player.numberOfChannels
+    
+}
+
+    func timerFunc(timer:NSTimer!) {
+
+}
 }

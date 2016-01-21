@@ -25,6 +25,8 @@ import Parse
     var fileName : String!
     var meterTimer:NSTimer!
     var soundFileURL:NSURL!
+    var peakPowerChannel : Float!
+    var vi : UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,12 @@ import Parse
         playButton.enabled = false
         setSessionPlayback()
         checkHeadphones()
+        let im = UIImage(named: "second")
+         vi = UIImageView(image: im)
+        
+        vi.frame = CGRectMake(30, 200, 100, 100)
+        self.view.addSubview(vi)
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -41,11 +49,20 @@ import Parse
     
     func updateAudioMeter(timer:NSTimer) {
         if recorder.recording {
+            recorder.meteringEnabled = true
+            recorder.updateMeters()
+        
+//                print(recorder.averagePowerForChannel(0))
             let min = Int(recorder.currentTime / 60)
             let sec = Int(recorder.currentTime % 60)
             let s = String(format: "%02d:%02d", min, sec)
             statusLabel.text = s
-            recorder.updateMeters()
+        } else {
+            player.meteringEnabled = true
+            player.updateMeters()
+            peakPowerChannel = player.averagePowerForChannel(0)
+//            print(player.averagePowerForChannel(0)+100)
+            meter()
         }
     }
     
@@ -65,7 +82,6 @@ import Parse
     }
     
     @IBAction func record(sender: UIButton) {
-        
         if player != nil && player.playing {
             player.stop()
         }
@@ -109,8 +125,8 @@ import Parse
     }
     
     @IBAction func play(sender: UIButton) {
-//        setSessionPlayback()
-//        play()
+        setSessionPlayback()
+        play()
         let circ = SpinLoading(frame: CGRectMake(0, 0, 100, 100))
         circ.center = self.view.center
         self.view.addSubview(circ)
@@ -161,6 +177,11 @@ import Parse
     
     func play() {
         
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.1,
+            target:self,
+            selector:"updateAudioMeter:",
+            userInfo:nil,
+            repeats:true)
         var url:NSURL?
         if self.recorder != nil {
             url = self.recorder.url
@@ -229,6 +250,7 @@ import Parse
                         self.setupRecorder()
                     }
                     self.recorder.recordForDuration(5.0)
+
                     self.meterTimer = NSTimer.scheduledTimerWithTimeInterval(0.1,
                         target:self,
                         selector:"updateAudioMeter:",
@@ -311,6 +333,11 @@ import Parse
     }
 
 
+    func meter() {
+        let piik = (peakPowerChannel+100)
+        let fl = CGFloat.init(piik)
+        vi.frame = CGRectMake(fl, 200, 100, 100)
+    }
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         recordButton.enabled = true

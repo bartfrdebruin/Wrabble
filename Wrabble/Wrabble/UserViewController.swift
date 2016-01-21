@@ -15,6 +15,10 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
     var headerView : UIView!
     var user : PFUser!
     var menu : UIView!
+    var followOb : PFObject!
+    var followers : Array<String>!
+    var following : Array<String>!
+
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: .Plain, className: "Wrabbles")
@@ -28,6 +32,10 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         user = PFUser.currentUser()
         user.fetchInBackground()
+        self.reloadInputViews()
+        if headerView != nil {
+            setHeader()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -80,15 +88,22 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
      func setHeader() {
         let wrabbles = headerView.viewWithTag(1) as! UILabel
         wrabbles.text = "\(objects!.count) Wrabbles"
-        let followers = headerView.viewWithTag(2) as! UIButton
-        let followersArray = user["followers"] as! Array<String>
-        followers.setTitle("\(followersArray.count) Followers", forState: .Normal)
-        followers.addTarget(self, action: "pushFollowers", forControlEvents: .TouchUpInside)
-        let following = headerView.viewWithTag(3) as! UIButton
-        let followingArray = user["following"] as! Array<String>
-        following.setTitle("\(followingArray.count) Following", forState: .Normal)
-        following.addTarget(self, action: "pushFollowing", forControlEvents: .TouchUpInside)
+        let followersButton = headerView.viewWithTag(2) as! UIButton
+        let query = PFQuery(className: "followers")
+        query.whereKey("userID", equalTo: (PFUser.currentUser()?.objectId)!)
+        query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
+            self.followOb = object
+            self.followers = object!["followers"] as! Array<String>
+            followersButton.setTitle("\(self.followers.count) Followers", forState: .Normal)
+            followersButton.addTarget(self, action: "pushFollowers", forControlEvents: .TouchUpInside)
+            let followingButton = self.headerView.viewWithTag(3) as! UIButton
+            self.following = object!["following"] as! Array<String>
+            followingButton.setTitle("\(self.following.count) Following", forState: .Normal)
+            followingButton.addTarget(self, action: "pushFollowing", forControlEvents: .TouchUpInside)
+        }
+        
         let changePic = headerView.viewWithTag(4) as! UIButton
+        changePic.setTitle("ChangePic", forState: .Normal)
         let menu = headerView.viewWithTag(7) as! UIButton
         menu.addTarget(self, action: "showsMenu", forControlEvents: .TouchUpInside)
         menu.userInteractionEnabled = true
@@ -107,12 +122,13 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
     
     func pushFollowers() {
         let follower = CollectionViewController()
+        follower.array = self.followers
         self.navigationController?.pushViewController(follower, animated: true)
     }
     
     func pushFollowing() {
-
         let following = FollowersVC()
+        following.array = self.following
         self.navigationController?.pushViewController(following, animated: true)
     }
     
@@ -136,6 +152,8 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         back.addTarget(self, action: "closeMenu:", forControlEvents: .TouchUpInside)
         let logOut = menu.viewWithTag(2) as! UIButton
         logOut.addTarget(self, action: "logOut", forControlEvents: .TouchUpInside)
+        let info = menu.viewWithTag(3) as! UIButton
+        info.addTarget(self, action: "info", forControlEvents: .TouchUpInside)
         let rotate = CABasicAnimation(keyPath: "transform.rotation.z")
         rotate.fromValue = 0
         rotate.toValue = (M_PI*2)
@@ -165,6 +183,12 @@ class UserViewController: TableViewController, UINavigationControllerDelegate, U
         sender.layer.addAnimation(rotate, forKey: "rotation")
     }
     
+    
+    func info() {
+        let mash = MashViewController()
+        mash.mashes = PFUser.currentUser()!["mash"] as! Array<String>
+        self.navigationController?.pushViewController(mash, animated: true)
+    }
     
     func logOut() {
         PFUser.logOutInBackgroundWithBlock { (error) -> Void in

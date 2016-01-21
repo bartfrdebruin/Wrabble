@@ -58,8 +58,7 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
         user.username = email.text
         user.password = password.text
         user.email = email.text
-        user["following"] = []
-        user["followers"] = []
+        user["mash"] = []
         let image = UIImage(named: "slide")
         let data = UIImageJPEGRepresentation(image!, 0.5)
         let file = PFFile(data: data!)
@@ -68,11 +67,14 @@ class SignupViewController: UIViewController, UINavigationControllerDelegate, UI
             (succeeded: Bool, error: NSError?) -> Void in
             if (error != nil) {
                 let errorString = error!.userInfo["error"] as? NSString
-                // Show the errorString somewhere and let the user try again.
             } else {
-                let tabbar = TabViewController()
-                self.presentViewController(tabbar, animated: true, completion: nil)
-                // Hooray! Let them use the app now.
+                let object = PFObject(className: "followers")
+                object["userID"] = PFUser.currentUser()?.objectId
+                object["followers"] = []
+                object["following"] = []
+                object.saveInBackgroundWithBlock({ (done, error) -> Void in
+                    let tabbar = TabViewController()
+                    self.presentViewController(tabbar, animated: true, completion: nil)                })
             }
         }
     }

@@ -17,6 +17,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     var users : Array<PFObject>?
     var emptyArray : Array<PFObject>?
     var searchBarActive:Bool = false
+    var query : PFQuery?
+    var array : Array<String>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,17 +47,14 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     func getUsers() {
         if (users != nil){
-            
         } else {
-        let user = PFUser.currentUser()
-        let array = user!["followers"] as? Array<String>
-        let query = PFUser.query()!
-        query.whereKey("objectId", containedIn: array!)
-        query.orderByAscending("username")
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            self.users = objects
-            self.collectionView.reloadData()
-        }
+            query = PFUser.query()
+            query!.whereKey("objectId", containedIn: array!)
+            query!.orderByAscending("username")
+            query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+                self.users = objects
+                self.collectionView.reloadData()
+            }
         }
     }
     
@@ -140,10 +139,18 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let userPeople = self.users![indexPath.row]
-        let people = PeopleViewController()
-        people.userPeople = userPeople
-        self.navigationController?.pushViewController(people, animated: true)
+        if (self.searchBarActive == true){
+            let userPeople = self.emptyArray![indexPath.row]
+            let people = PeopleViewController()
+            people.userPeople = userPeople
+            self.navigationController?.pushViewController(people, animated: true)
+        } else {
+            let userPeople = self.users![indexPath.row]
+            let people = PeopleViewController()
+            people.userPeople = userPeople
+            self.navigationController?.pushViewController(people, animated: true)
+        }
+     
     }
 }
 
